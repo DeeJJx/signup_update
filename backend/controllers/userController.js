@@ -74,6 +74,7 @@ const updateUser = async(req, res) => {
     }
 
     res.status(200).json({
+        email: user.email,
         name: user.name,
         addressOne: user.addressOne,
         addressTwo: user.addressTwo,
