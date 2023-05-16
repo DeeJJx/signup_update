@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
+
 //context & useUpdate not required? kept changing user context and logging user out essentially
 // import { useUpdate } from "../hooks/useUpdate";
 
@@ -73,9 +74,7 @@ const Dashboard = () => {
 
             if(response.ok){
                 const userDetailsArray = Object.values(json); // Convert JSON object to an array
-                console.log(userDetailsArray);
-                setUserDetails(userDetailsArray);
-    
+                setUserDetails(userDetailsArray);    
             }
         }
 
