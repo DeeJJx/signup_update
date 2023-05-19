@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const mainUserRoutes = require('./routes/user');
+const earlyAccessUserRoutes = require('./routes/earlyAccessUser');
 const mongoose = require('mongoose');
 const express = require('express');
 
@@ -16,6 +17,7 @@ app.use((req, res, next) => {
 
 //routes
 app.use('/api/user',mainUserRoutes);
+app.use('/api/early-access', earlyAccessUserRoutes);
 
 
 app.get("/", (req, res) => {

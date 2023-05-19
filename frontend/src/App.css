@@ -123,3 +123,172 @@
 
 
 /* navbar */
+
+/*templates */
+.item-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  border-radius: 8px;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  color: #fff;
+  text-decoration: none;
+}
+
+.item:hover {
+  filter: brightness(50%); /* Replace #color with the desired color value */
+}
+
+.item-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*templates*/
+
+/*template bricky css */
+
+.bricky-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bricky-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../public/images/bricky.jpg');
+  background-size: cover;
+}
+
+.bricky-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  z-index: 99;
+  /* Add any additional styles for your form container */
+}
+
+.bricky-input {
+  font-size: 5rem;
+  width: auto;
+  height: 100px;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: #f4f4f4;
+  margin-bottom: 10px;
+  border: none;
+  /* Add any additional styles for your form inputs */
+}
+
+.bricky-input::placeholder {
+  color: #fff;
+}
+
+.bricky-input:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.bricky-testimonials {
+  margin-top: 20px;
+}
+
+.testimonials-heading {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.testimonial {
+  margin-bottom: 10px;
+}
+
+.testimonial-text {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+.testimonial-author {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+
+
+/*template bricky css */
+
+/*Homepage styling*/
+.home-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #00a8ff, #32ff7e);
+  padding: 0 20px;
+}
+
+.info-container {
+  width: 60%;
+  color: #fff;
+}
+
+.signup-container {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.signup-container h2 {
+  margin-bottom: 20px;
+}
+
+.signup-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-container input {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+.signup-container button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.signup-container button:hover {
+  background-color: #45a049;
+}
+
+
+/*Homepage styling*/
