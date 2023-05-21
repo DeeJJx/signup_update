@@ -157,11 +157,10 @@
 /*templates*/
 
 /*template bricky css */
-
 .bricky-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -178,6 +177,7 @@
 }
 
 .bricky-form-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -187,7 +187,7 @@
 }
 
 .bricky-input {
-  font-size: 5rem;
+  font-size: 3rem;
   width: auto;
   height: 100px;
   resize: none;
@@ -231,6 +231,24 @@
   color: white;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
+}
+
+.buy-now-link {
+  position: sticky;
+  bottom: 20px;
+  right: 20px;
+  padding: 40px 20px;
+  background-color: rgba(170, 0, 0, 0.6);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 16px;
+  margin-left: auto;
+}
+
+.buy-now-link:hover {
+  background-color: rgba(170, 0, 0, 0.8);
 }
 
 
@@ -292,3 +310,51 @@
 
 
 /*Homepage styling*/
+
+/* checkout styling */
+
+.checkout-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button.checkout-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+p.login-message {
+  text-align: center;
+  color: #FF0000;
+}
+
+/* checkout styling */

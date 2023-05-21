@@ -1,6 +1,6 @@
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 
 const Bricky = () => {
   const { user } = useAuthContext();
@@ -8,27 +8,25 @@ const Bricky = () => {
   const [userDetails, setUserDetails] = useState({});
 
   useEffect(() => {
-    const fetchUserDetails = async() => {
-        const response = await fetch(`/api/user/${user.id}`, {
-            headers: {
-                'Authorization': `Bearer ${user.token}`
-            }
-        })
-
-        const json = await response.json();
-        console.log(json)
-
-        if(response.ok){
-           // const userDetailsArray = Object.values(json); // Convert JSON object to an array
-            setUserDetails(json);    
+    const fetchUserDetails = async () => {
+      const response = await fetch(`/api/user/${user.id}`, {
+        headers: {
+          'Authorization': `Bearer ${user.token}`
         }
+      });
+
+      const json = await response.json();
+      console.log(json);
+
+      if (response.ok) {
+        setUserDetails(json);
+      }
+    };
+
+    if (user) {
+      fetchUserDetails();
     }
-
-    if(user){
-        fetchUserDetails();
-    }        
-}, [user])
-
+  }, [user]);
 
   return (
     <div className="bricky-container">
@@ -53,9 +51,14 @@ const Bricky = () => {
           </div>
           {/* Add more testimonials as needed */}
         </div>
+
+        {/* Buy Now button */}
+        <Link to="/order-preview" className="buy-now-link">
+          Buy Now
+        </Link>
       </div>
     </div>
   );
-}
+};
 
 export default Bricky;

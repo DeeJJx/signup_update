@@ -1,4 +1,5 @@
 import './App.css';
+import { useState, useEffect } from "react";
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 //pages
@@ -7,14 +8,38 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Templates from './pages/Templates';
+import Checkout from './pages/Checkout';
+import OrderPreview from './pages/OrderPreview';
+import OrderSuccess from './pages/OrderSuccess';
+
 
 //templates
 import Bricky from './components/templates/Bricky';
 
 //components
 import Navbar from './components/Navbar';
+import StripeMessage from './components/StripeMessage';
 
 function App() {
+
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    // Check to see if this is a redirect back from Checkout
+    const query = new URLSearchParams(window.location.search);
+
+    if (query.get("success")) {
+      setMessage("Order placed! You will receive an email confirmation.");
+    }
+
+    if (query.get("canceled")) {
+      setMessage(
+        "Order canceled -- continue to shop around and checkout when you're ready."
+      );
+    }
+  }, []);
+
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -45,6 +70,27 @@ function App() {
               path='/bricky'
               element={<Bricky />}
               />
+              <Route
+              path='/checkout'
+              element={<Checkout />}
+              />
+              <Route
+              path='/order-success'
+              element={<OrderSuccess />}
+              />
+               {message ? (
+                <StripeMessage message={message} />
+               ) : (
+                <Route
+                path='/order-preview'
+                element={<OrderPreview />}
+                />
+               )
+               }
+              <Route
+              path='/order-preview'
+              element={<OrderPreview />}
+              />
           </Routes>
         </div>
       </BrowserRouter>
@@ -53,3 +99,7 @@ function App() {
 }
 
 export default App;
+
+
+
+   
