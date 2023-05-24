@@ -358,3 +358,8 @@ p.login-message {
 }
 
 /* checkout styling */
+
+.order-preview-image {
+  height: 200px;
+  width: auto;
+}
