@@ -2,27 +2,27 @@ const stripe = require('stripe')(process.env.STRIPEKEY);
 
 const createCheckoutSession = async(req, res) => {
 
-    //   // Get the selected product ID from the frontend
-    //   const { productId } = req.body;
+      // Get the selected product ID from the frontend
+      const { productId } = req.body;
 
-    //   console.log(productId)
+      console.log(productId)
   
-    //   // Define a mapping of product IDs to prices
-    //   const priceMap = {
-    //       bricky_id: 'price_1NA7O1JVu65LdnVcBljr473q',
-    //       sub_id: 'price_1NA64tJVu65LdnVcfgUwbhUA',
-    //       // Add more product IDs and their corresponding prices here
-    //     };
+      // Define a mapping of product IDs to prices
+      const priceMap = {
+          bricky_id: 'price_1NA7O1JVu65LdnVcBljr473q',
+          sub_id: 'price_1NA64tJVu65LdnVcfgUwbhUA',
+          // Add more product IDs and their corresponding prices here
+        };
       
-    //   //   Get the price based on the selected product ID
-    //     const price = priceMap[productId];
+      //   Get the price based on the selected product ID
+        const price = priceMap[productId];
   
-    //     console.log(price);
+        console.log(price);
       
-    //     if (!price) {
-    //       // Handle invalid product ID
-    //       return res.status(400).json({ error: 'Invalid product selected' });
-    //     }
+        if (!price) {
+          // Handle invalid product ID
+          return res.status(400).json({ error: 'Invalid product selected' });
+        }
 
         const session = await stripe.checkout.sessions.create({
             line_items: [
@@ -40,7 +40,7 @@ const createCheckoutSession = async(req, res) => {
             cancel_url: `http://localhost:3000/order-preview`,
         });
         
-        res.redirect(303, session.url);
+        res.json({url: session.url});
 }
 
  //   try {
