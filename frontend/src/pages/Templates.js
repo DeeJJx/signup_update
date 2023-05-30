@@ -11,6 +11,7 @@ const Templates = () => {
     
       const handleClick = (item) => {
         console.log(`Clicked item: ${item.name}`);
+        localStorage.setItem("productId", `${item.name}_id`);
         // Perform any desired action when an item is clicked
       };
     

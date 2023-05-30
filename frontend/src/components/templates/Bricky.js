@@ -28,14 +28,6 @@ const Bricky = () => {
     }
   }, [user]);
 
-    // Add a state to hold the selected productId
-    const [productId, setProductId] = useState('');
-
-    // Handler for setting the productId
-    const handleProductSelect = (selectedProductId) => {
-      setProductId(selectedProductId);
-    };
-
   return (
     <div className="bricky-container">
       <div className="bricky-background-image"></div>
@@ -63,10 +55,8 @@ const Bricky = () => {
         {/* Buy Now button */}
         <Link to={{ 
           pathname: "/order-preview",
-          state: { productId } // Pass the productId in the state object
         }}
         className="buy-now-link"
-        onClick={() => handleProductSelect('bricky_id')} // Call handleProductSelect with the selected product ID
         >
           Buy Now
         </Link>

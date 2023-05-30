@@ -1,52 +1,73 @@
 import image from '../images/bricky.jpg';
-import { useLocation } from "react-router-dom";
+import axios from "axios";
 
-const OrderPreview = () => {
-  const location = useLocation();
-  const productId = location.state?.productId || 'emptyProductId';
 
-  const handleSubmit = async(e) => {
-    e.preventDefault();
+// const OrderPreview = () => {
+//   const productId = localStorage.getItem("productId") || "empty product ID";
 
-    const data = { productId }; // Replace 'productId' with the actual value or variable that holds the product ID
+//   const handleSubmit = async(e) => {
+//     e.preventDefault();
+//     try {
+//       const response = await fetch('/create-checkout-session', {
+//         method: 'POST',
+//         // mode: "no-cors", // no-cors, *cors, same-origin
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({productId}),
+//       });
   
-    try {
-      const response = await fetch('/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-  
-      if (response.ok) {
-        console.log('Request sent successfully');
-      } else {
-        console.log('Request failed');
-      }
-    } catch (error) {
-      console.log('Error occurred during the request', error);
-    }
-  }
+//       if (response.ok) {
+//         console.log('Request sent successfully');
+//       } else {
+//         console.log('Request failed');
+//       }
+//     } catch (error) {
+//       console.log('Error occurred during the request', error);
+//     }
+//   }
 
-  return (
-    <section>
-      <div className="product">
-        <img
-          src={image}
-          alt="The brick covered background"
-          className='order-preview-image'
-        />
-        <div className="description">
-        <h3>Brick Layer Site</h3>
-        <h5>$19.99</h5>
-        </div>
+//   return (
+//     <section>
+//       <div className="product">
+//         <img
+//           src={image}
+//           alt="The brick covered background"
+//           className='order-preview-image'
+//         />
+//         <div className="description">
+//         <h3>Brick Layer Site</h3>
+//         <h5>$19.99</h5>
+//         </div>
+//       </div>
+//       <form onSubmit={handleSubmit}>
+//         <button type="submit">
+//           Checkout
+//         </button>
+//       </form>
+//     </section>
+//   )  
+// };
+
+// export default OrderPreview;
+
+
+const OrderPreview = () => (
+  <section>
+    <div className="product">
+      <img
+        src="https://i.imgur.com/EHyR2nP.png"
+        alt="The cover of Stubborn Attachments"
+      />
+      <div className="description">
+      <h3>Stubborn Attachments</h3>
+      <h5>$20.00</h5>
       </div>
-      <form onSubmit={handleSubmit}>
-        <button type="submit">
-          Checkout
-        </button>
-      </form>
-    </section>
-  )  
-};
+    </div>
+    <form action="api/stripe/create-checkout-session" method="POST">
+      <button type="submit">
+        Checkout
+      </button>
+    </form>
+  </section>
+);
 
-export default OrderPreview;
+export default OrderPreview; 
