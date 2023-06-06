@@ -124,6 +124,28 @@
 
 /* navbar */
 
+/* footer */
+
+.footer {
+  background-color: #dadada;
+  align-items: center;
+  margin-top: auto;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-left {
+  font-weight: bold
+}
+
+.footer-right {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* footer */
+
 /*templates */
 .item-list {
   display: flex;

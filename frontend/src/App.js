@@ -11,6 +11,7 @@ import Templates from './pages/Templates';
 import Checkout from './pages/Checkout';
 import OrderPreview from './pages/OrderPreview';
 import OrderSuccess from './pages/OrderSuccess';
+import Privacy from './pages/Privacy';
 
 
 //templates
@@ -19,6 +20,7 @@ import Bricky from './components/templates/Bricky';
 //components
 import Navbar from './components/Navbar';
 import StripeMessage from './components/StripeMessage';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -91,9 +93,14 @@ function App() {
               path='/order-preview'
               element={<OrderPreview />}
               />
+              <Route
+              path='/privacy'
+              element={<Privacy />}
+              />
           </Routes>
         </div>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }
