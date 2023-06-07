@@ -129,10 +129,10 @@
 .footer {
   background-color: #dadada;
   align-items: center;
-  margin-top: auto;
-  padding: 8px;
   display: flex;
+  padding: 5px;
   justify-content: space-between;
+  font-size: small;
 }
 
 .footer-left {
@@ -141,7 +141,17 @@
 
 .footer-right {
   display: flex;
-  justify-content: space-evenly;
+}
+
+.footer-links > * {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #000;
+  padding: 10px;
+}
+
+.footer-links > *:hover {
+  color: #4caf50;
 }
 
 /* footer */
