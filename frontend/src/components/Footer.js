@@ -10,10 +10,12 @@ const Footer = () => {
                 <p>{`Copyright © Twenny ${year}`}</p>
             </div>
             <div className="footer-right">
-                <h5>Privacy</h5>
-                <h5>Terms</h5>
-                <h5>Sitemap</h5>
-                <h5>Contact Us</h5>
+                <div className="footer-links">
+                    <Link to="/privacy">Privacy</Link>
+                    <Link to="/terms">Terms</Link>
+                    <Link to="/sitemap">Sitemap</Link>
+                    <Link to="/contactus">Contact Us</Link>
+                </div>
             </div>
         </div>
     )

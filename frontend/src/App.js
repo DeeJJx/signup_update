@@ -12,6 +12,9 @@ import Checkout from './pages/Checkout';
 import OrderPreview from './pages/OrderPreview';
 import OrderSuccess from './pages/OrderSuccess';
 import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import Sitemap from './pages/Sitemap';
+import ContactUs from './pages/ContactUs';
 
 
 //templates
@@ -97,10 +100,22 @@ function App() {
               path='/privacy'
               element={<Privacy />}
               />
+              <Route
+              path='/terms'
+              element={<Terms />}
+              />
+              <Route
+              path='/sitemap'
+              element={<Sitemap />}
+              />
+              <Route
+              path='/contactus'
+              element={<ContactUs />}
+              />
           </Routes>
         </div>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </div>
   );
 }
