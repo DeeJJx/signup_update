@@ -22,7 +22,7 @@ const DomainSearchBar = () => {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '9951feb9f2msha1a48e515443097p1872dcjsn25903bbc04dc',
+                'X-RapidAPI-Key': process.env.REACT_APP_NOT_SECRET_CODE_DOMAIN,
                 'X-RapidAPI-Host': 'domaination.p.rapidapi.com'
             }
         };
