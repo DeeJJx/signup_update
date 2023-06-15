@@ -22,7 +22,7 @@ const Templates = () => {
             {items.map((item, index) => (
                 <Link
                     key={index}
-                    to={`/${item.name}`}
+                    to={`/templates/${item.name}`}
                     className="item"
                     style={{ backgroundColor: item.color }}
                     onClick={() => handleClick(item)}

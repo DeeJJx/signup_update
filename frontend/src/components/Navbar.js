@@ -17,9 +17,15 @@ const Navbar = () => {
             </div>
             <nav className="navbar-menu">
                 <div className="navbar-links">
+                    {user && (
                     <Link to="/dashboard">Dashboard</Link>
+                    )}
+                    {!user && (
                     <Link to="/login">Login</Link>
+                    )}
+                    {!user && (
                     <Link to="/signup">Signup</Link>
+                    )}
                     <Link to="/templates">Templates</Link>
                     {user && (
                         <span>{user.email}</span>

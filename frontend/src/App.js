@@ -73,7 +73,7 @@ function App() {
               element={<Dashboard />}
               />
               <Route
-              path='/bricky'
+              path='/templates/bricky'
               element={<Bricky />}
               />
               <Route

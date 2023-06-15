@@ -1,9 +1,36 @@
 import image from '../images/bricky.jpg';
-import axios from "axios";
+import { useAuthContext } from '../hooks/useAuthContext';
+import { useEffect, useState } from "react";
+
 
 
 const OrderPreview = () => {
   const productId = localStorage.getItem("productId") || "empty product ID";
+  const { user } = useAuthContext();
+  const [userDetails, setUserDetails] = useState({});
+
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      const response = await fetch(`/api/user/${user.id}`, {
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
+      });
+
+      const json = await response.json();
+      console.log(json);
+
+      if (response.ok) {
+        setUserDetails(json);
+      }
+    };
+
+    if (user) {
+      fetchUserDetails();
+    }
+  }, [user]);
+
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -44,11 +71,27 @@ const OrderPreview = () => {
         <h5>$19.99</h5>
         </div>
       </div>
-      <form onSubmit={handleSubmit}>
-        <button type="submit">
-          Checkout
-        </button>
-      </form>
+      {user && (
+        <div>
+          <h2>See below details that will be displayed on site!</h2>
+          <p>Name: {userDetails.name}</p>
+          <p>Address Line One: {userDetails.addressOne}</p>
+          <p>Address Line Two: {userDetails.addressTwo}</p>
+          <p>Telephone: {userDetails.telephone}</p>
+        </div>
+      )}
+      {user ? (
+          <form onSubmit={handleSubmit}>
+          <button type="submit">
+            Checkout
+          </button>
+        </form>
+      ) : (
+        <div>
+          To make this purchase please sign up for an account.
+        </div>
+      )}
+
     </section>
   )  
 };
