@@ -43,15 +43,15 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="info-container">
-        <h1>Welcome to the TradeJobs SaaS Platform</h1>
+        <h1>Welcome to the Twenny</h1>
         <p>
-          TradeJobs is a powerful SaaS product designed specifically for professionals in trade jobs such as plumbers, bricklayers, and landscapers. Our platform enables you to establish an online presence effortlessly.
+          Twenny is a powerful SaaS product designed specifically for professionals in trade jobs such as plumbers, bricklayers, and landscapers. Our platform enables you to establish an online presence effortlessly.
         </p>
         <p>
-          With TradeJobs, you can purchase a web domain for just 20 pounds and easily host your own personalized landing page. Showcase your skills and services to potential clients by providing them with your relevant contact information, including your name, address, email, telephone number, and social media handles.
+          With Twenny, you can purchase a web domain for just 19.99 and easily host your own personalized landing page. Showcase your skills and services to potential clients by providing them with your relevant contact information, including your name, address, email, telephone number, and social media handles.
         </p>
         <p>
-          Join TradeJobs today and unlock the potential to expand your business online. Sign up here to receive updates and gain early access to our SaaS platform when the MVP is ready.
+          Join Twenny today and unlock the potential to expand your business online. Sign up here to receive updates and gain early access to our platform when it is ready.
         </p>
       </div>
       <div className="signup-container">

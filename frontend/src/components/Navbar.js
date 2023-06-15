@@ -27,6 +27,7 @@ const Navbar = () => {
                     <Link to="/signup">Signup</Link>
                     )}
                     <Link to="/templates">Templates</Link>
+                    <Link to="/domain-search">Domain Search</Link>
                     {user && (
                         <span>{user.email}</span>
                     )}

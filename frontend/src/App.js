@@ -81,6 +81,10 @@ function App() {
               element={<Checkout />}
               />
               <Route
+              path='/domain-search'
+              element={<CheckDomain />}
+              />
+              <Route
               path='/order-success'
               element={<OrderSuccess />}
               />
