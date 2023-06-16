@@ -395,7 +395,22 @@ p.login-message {
 
 /* checkout styling */
 
+/* order preview styling */
+
 .order-preview-image {
   height: 200px;
   width: auto;
 }
+
+/* order preview styling */
+
+/* domain search styling */
+
+.domain-search-bar form {
+  width: 50%;
+  margin: auto;
+}
+.domain-search-bar form input {
+  margin-bottom: 0.5rem;
+}
+/* domain search styling */

@@ -1,6 +1,7 @@
 import image from '../images/bricky.jpg';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useEffect, useState } from "react";
+import DomainSearchBar from '../components/DomainSearchBar';
 
 
 
@@ -69,6 +70,8 @@ const OrderPreview = () => {
         <div className="description">
         <h3>Brick Layer Site</h3>
         <h5>$19.99</h5>
+        <h3>Find your perfect site name using our tool below</h3>
+        <DomainSearchBar />
         </div>
       </div>
       {user && (
