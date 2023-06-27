@@ -3,6 +3,7 @@ require('dotenv').config();
 const mainUserRoutes = require('./routes/user');
 const earlyAccessUserRoutes = require('./routes/earlyAccessUser');
 const stripeRoutes = require('./routes/stripe');
+const emailRoutes = require('./routes/autoEmail');
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
@@ -24,7 +25,8 @@ app.use((req, res, next) => {
 //routes
 app.use('/api/user',mainUserRoutes);
 app.use('/api/early-access', earlyAccessUserRoutes);
-app.use('/api/stripe', stripeRoutes)
+app.use('/api/stripe', stripeRoutes);
+app.use('/api/email', emailRoutes);
 
 
 
