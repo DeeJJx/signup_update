@@ -67,11 +67,9 @@ function App() {
               path='/domain-search'
               element={<CheckDomain />}
               />
-                {/* {['/order-success?success=true', '/order-success?cancelled=true'].map((path) => (
-            <Route path={path} element={<OrderSuccess />} />
-                 ))} */}
               <Route
               path='/order-success'
+              // element={<OrderSuccess />}
               element={user ? <OrderSuccess /> : <Navigate to="/" />}
               />
               <Route
@@ -107,3 +105,44 @@ function App() {
 }
 
 export default App;
+
+
+// function App() {
+
+//   const {user} = useAuthContext();
+
+//   return (
+//     <div className="App">
+//       <BrowserRouter>
+//       <Navbar />
+//         <div className='pages'>
+//           <Routes>
+//               <Route 
+//               path='/' 
+//               element={<Home />}
+//               />
+//               <Route
+//               path='/signup'
+//               element={!user ? <Signup /> : <Navigate to="/dashboard" />}
+//               />
+//               <Route
+//               path='/login'
+//               element={!user ? <Login /> : <Navigate to="/dashboard" />}
+//               />
+//               <Route
+//               path='/dashboard'
+//               element={user ? <Dashboard /> : <Navigate to="/" />}
+//               />
+//               <Route
+//               path='/order-success'
+//               element={user ? <OrderSuccess /> : <Navigate to="/" />}
+//               />
+//           </Routes>
+//         </div>
+//         <Footer />
+//       </BrowserRouter>
+//     </div>
+//   );
+// }
+
+// export default App;

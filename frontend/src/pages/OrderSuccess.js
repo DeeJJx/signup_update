@@ -1,29 +1,47 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuthContext } from "../hooks/useAuthContext";
 
 
 const OrderSuccess = () => {
   const {user} = useAuthContext();
+  const [userDetails, setUserDetails] = useState({});
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const success = searchParams.get('success');
   const cancelled = searchParams.get('cancelled');
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Redirect if success or cancelled parameters are missing
-    if ((!success && !cancelled)) {
-      navigate('/order-preview'); // Replace '/' with the desired redirect path
-    } else {
+    useEffect(() => {
+        // Redirect if success or cancelled parameters are missing
+        if (!success && !cancelled) {
+        navigate('/order-preview'); // Replace '/' with the desired redirect path
+        } 
+    }, [success, cancelled, navigate]);
 
-        const emailConfirmation = async (req, res) => {
+    console.log('this is ' + user);
 
-    }
+    useEffect(() => {
+        const fetchUserDetails = async() => {
+            const response = await fetch(`/api/user/${user.id}`, {
+                headers: {
+                    'Authorization': `Bearer ${user.token}`
+                }
+            })
 
+            const json = await response.json();
 
-    }
-  }, [success, cancelled, navigate, user]);
+            if(response.ok){
+                const userDetailsArray = Object.values(json); // Convert JSON object to an array
+                setUserDetails(userDetailsArray);    
+            }
+        }
+
+        if(user){
+            fetchUserDetails();
+        }        
+    }, [user])
+
 
   return (
     <div>
