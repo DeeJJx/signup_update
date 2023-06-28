@@ -37,8 +37,8 @@ const createCheckoutSession = async(req, res) => {
                 }
             ],
             mode: 'subscription',
-            success_url: `http://localhost:3000/order-success`,
-            cancel_url: `http://localhost:3000/order-preview`,
+            success_url: `http://localhost:3000/order-success?success=true`,
+            cancel_url: `http://localhost:3000/order-success?cancelled=true`,
         });
         
         res.json({url: session.url});

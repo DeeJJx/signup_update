@@ -1,9 +1,25 @@
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
 const OrderSuccess = () => {
-    return (
-        <div>
-            Congratulations! You have successfully placed an order for *insert site name here*
-        </div>
-    )
-}
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const success = searchParams.get('success');
+  const cancelled = searchParams.get('cancelled');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirect if success or cancelled parameters are missing
+    if (!success && !cancelled) {
+      navigate('/order-preview'); // Replace '/' with the desired redirect path
+    }
+  }, [success, cancelled, navigate]);
+
+  return (
+    <div>
+      {success === 'true' ? <div>Order success</div> : <div>Order cancelled</div>}
+    </div>
+  );
+};
 
 export default OrderSuccess;

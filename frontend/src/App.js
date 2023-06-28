@@ -1,5 +1,4 @@
 import './App.css';
-import { useState, useEffect } from "react";
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 //pages
@@ -23,28 +22,9 @@ import Bricky from './components/templates/Bricky';
 
 //components
 import Navbar from './components/Navbar';
-import StripeMessage from './components/StripeMessage';
 import Footer from './components/Footer';
 
 function App() {
-
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
-    const query = new URLSearchParams(window.location.search);
-
-    if (query.get("success")) {
-      setMessage("Order placed! You will receive an email confirmation.");
-    }
-
-    if (query.get("canceled")) {
-      setMessage(
-        "Order canceled -- continue to shop around and checkout when you're ready."
-      );
-    }
-  }, []);
-
 
   return (
     <div className="App">
@@ -84,19 +64,17 @@ function App() {
               path='/domain-search'
               element={<CheckDomain />}
               />
+                {/* {['/order-success?success=true', '/order-success?cancelled=true'].map((path) => (
+            <Route path={path} element={<OrderSuccess />} />
+                 ))} */}
               <Route
               path='/order-success'
               element={<OrderSuccess />}
               />
-               {message ? (
-                <StripeMessage message={message} />
-               ) : (
-                <Route
-                path='/order-preview'
-                element={<OrderPreview />}
-                />
-               )
-               }
+              {/* <Route
+              path='/order-success?cancelled=true'
+              element={<OrderSuccess />}
+              />  */}
               <Route
               path='/order-preview'
               element={<OrderPreview />}
@@ -130,7 +108,3 @@ function App() {
 }
 
 export default App;
-
-
-
-   
