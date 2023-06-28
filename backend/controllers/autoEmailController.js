@@ -18,14 +18,6 @@ const sendAutoEmail = async (req, res) => {
         }
     });  
 
-    // transporter.sendMail(mailOptions, (error, info) => {
-    //     if (error) {
-    //         console.log('Error:', error);
-    //     } else {
-    //         console.log('Email sent:', info.response);
-    //     }
-    // });
-
     try {
     const info = await transporter.sendMail(mailOptions);
     console.log('Email sent:', info.response);
