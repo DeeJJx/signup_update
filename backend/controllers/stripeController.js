@@ -1,5 +1,4 @@
 const stripe = require('stripe')(process.env.STRIPEKEY);
-const bodyParser = require('body-parser');
 
 const createCheckoutSession = async(req, res) => {
 

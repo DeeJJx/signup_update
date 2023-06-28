@@ -1,5 +1,6 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+import { useAuthContext } from './hooks/useAuthContext';
 
 //pages
 import Home from './pages/Home';
@@ -26,6 +27,8 @@ import Footer from './components/Footer';
 
 function App() {
 
+  const {user} = useAuthContext();
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -42,15 +45,15 @@ function App() {
               />
               <Route
               path='/signup'
-              element={<Signup />}
+              element={!user ? <Signup /> : <Navigate to="/dashboard" />}
               />
               <Route
               path='/login'
-              element={<Login />}
+              element={!user ? <Login /> : <Navigate to="/dashboard" />}
               />
               <Route
               path='/dashboard'
-              element={<Dashboard />}
+              element={user ? <Dashboard /> : <Navigate to="/" />}
               />
               <Route
               path='/templates/bricky'
@@ -69,12 +72,8 @@ function App() {
                  ))} */}
               <Route
               path='/order-success'
-              element={<OrderSuccess />}
+              element={user ? <OrderSuccess /> : <Navigate to="/" />}
               />
-              {/* <Route
-              path='/order-success?cancelled=true'
-              element={<OrderSuccess />}
-              />  */}
               <Route
               path='/order-preview'
               element={<OrderPreview />}
