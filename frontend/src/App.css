@@ -98,32 +98,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f4f4f4;
-  padding: 10px;
+  padding: 10px 30px 10px 30px;
 }
 
-.navbar-brand {
+.logo {
+  margin-right: 20px;
+}
+
+.navbar-links {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-links a {
+  padding: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-links a.home {
   font-weight: bold;
 }
 
-.navbar-menu {
-  display: flex;
+.contact-us {
+  display: inline-block;
+  padding: 10px 20px 10px 20px;
+  border: 1px solid orange;
+  border-radius: 20px;
 }
 
-.navbar-links > * {
-  margin-right: 10px;
+.contact-us a {
+  color: orange;
   text-decoration: none;
-  color: #000;
 }
-
-.navbar-links > *:last-child {
-  margin-right: 0;
-}
-
-.navbar-links > *:hover {
-  color: #4caf50;
-}
-
 
 /* navbar */
 

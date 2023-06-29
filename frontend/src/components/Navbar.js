@@ -12,30 +12,32 @@ const Navbar = () => {
     }
     return (
         <header className="navbar">
-            <div className="navbar-brand">
-                <Link to="/">Homepage</Link>
+            <div className="logo">
+                <p>Twenny</p>
             </div>
-            <nav className="navbar-menu">
-                <div className="navbar-links">
-                    {user && (
-                    <Link to="/dashboard">Dashboard</Link>
-                    )}
-                    {!user && (
-                    <Link to="/login">Login</Link>
-                    )}
-                    {!user && (
-                    <Link to="/signup">Signup</Link>
-                    )}
-                    <Link to="/templates">Templates</Link>
-                    <Link to="/domain-search">Domain Search</Link>
-                    {user && (
-                        <span>{user.email}</span>
-                    )}
-                    {user && (
-                        <button onClick={handleClick}>Logout</button>
-                    )}
-                </div>
-            </nav>
+            <div className="navbar-links">
+                {!user && (
+                <Link to="/home" className="home">Home</Link>
+                )}
+                {!user && (
+                <Link to="/about">About</Link>
+                )}
+                {!user && (
+                <Link to="/services">Services</Link>
+                )}
+                <Link to="/projects">Projects</Link>
+                {user && (
+                    <span>{user.email}</span>
+                )}
+                {user && (
+                    <button onClick={handleClick}>Logout</button>
+                )}
+            </div>
+            <div className="contact-us">
+                {!user && (
+                <Link to="/contactus">Contact Us</Link>    
+                )}
+            </div>
         </header>
     )
 }
