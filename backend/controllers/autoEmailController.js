@@ -2,11 +2,13 @@ const nodeMailer = require('nodemailer');
 
 const sendAutoEmail = async (req, res) => {
 
+    const userDetails = JSON.stringify(req.body);
+
     const mailOptions = {
         from: 'twennyCommunication@gmail.com',
-        to: 'j-j0001@hotmail.com',
-        subject: 'Hello from Node.js',
-        text: 'This is the body of the email'
+        to: ['j-j0001@hotmail.com', 'daniel.turnbull94@gmail.com'],
+        subject: 'User details test',
+        text: userDetails
     };
 
     

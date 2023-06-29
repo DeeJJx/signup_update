@@ -19,8 +19,6 @@ const OrderSuccess = () => {
         } 
     }, [success, cancelled, navigate]);
 
-    console.log('this is ' + user);
-
     useEffect(() => {
         const fetchUserDetails = async() => {
             const response = await fetch(`/api/user/${user.id}`, {
@@ -41,6 +39,27 @@ const OrderSuccess = () => {
             fetchUserDetails();
         }        
     }, [user])
+
+    const emailConfirmation = async (userDetails) => {
+        const response = await fetch(`/api/email/send-confirmation`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({userDetails})
+        })
+        const json = await response.json();
+
+        if(!response.ok){
+             console.log(json.error);
+        }
+
+        if(response.ok){
+            console.log('email sent')
+        }
+    }
+
+    if(userDetails){
+        emailConfirmation(userDetails)
+    }
 
 
   return (
