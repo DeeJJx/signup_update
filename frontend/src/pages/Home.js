@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import buildersImage from '../images/builders.jpg';
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -41,32 +42,15 @@ const Home = () => {
   };
 
   return (
-    <div className="home-container">
-      <div className="info-container">
-        <h1>Welcome to the Twenny</h1>
-        <p>
-          Twenny is a powerful SaaS product designed specifically for professionals in trade jobs such as plumbers, bricklayers, and landscapers. Our platform enables you to establish an online presence effortlessly.
-        </p>
-        <p>
-          With Twenny, you can purchase a web domain for just 19.99 and easily host your own personalized landing page. Showcase your skills and services to potential clients by providing them with your relevant contact information, including your name, address, email, telephone number, and social media handles.
-        </p>
-        <p>
-          Join Twenny today and unlock the potential to expand your business online. Sign up here to receive updates and gain early access to our platform when it is ready.
-        </p>
-      </div>
-      <div className="signup-container">
-        <h2>Sign Up</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={handleEmailChange}
-            required
-          />
-          <button type="submit" disabled={isLoading}>Sign Up</button>
-          {error && <div>{error}</div>}
-        </form>
+    <div className="hero">
+      <div className="hero-content">
+        <h1>Websites that work as hard as you do</h1>
+        <p>Are you a skilled tradesperson looking to enhance your online presence and expand your business reach?</p>
+        <p>Twenny is here to revolutionize the way trade professionals showcase their expertise and attract new clients.</p>
+        <div className="hero-actions">
+          <img src={buildersImage} alt="builders" />
+          <button className="hero-button">Get Started</button>
+        </div>
       </div>
     </div>
   );
