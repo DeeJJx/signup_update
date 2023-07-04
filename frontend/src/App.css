@@ -338,17 +338,20 @@
 .hero {
   display: flex;
   justify-content: center;
+  margin: 50px;
 }
 
 .hero-button {
-  padding: 10px 20px;
+  padding: 10px 40px;
   font-size: 16px;
   color: #fff;
   background-color: #E97F01;
   border: none;
-  border-radius: 4px;
+  border-radius: 30px;
   cursor: pointer;
   margin: 20px;
+  box-shadow: 0 4px 5px rgb(0, 0, 0, 0.5);
+  font-weight: bold;
 }
 
 .hero-actions {
@@ -357,6 +360,186 @@
   align-items: center;
   margin: 20px;
   padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 64px;
+}
+
+.hero-content p {
+  color: #464646;
+  font-size: 22px;
+}
+
+.about {
+  padding: 40px 0;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.about-header h5 {
+  font-size: 28px;
+  color: #E97F01; 
+  margin-bottom: 10px;
+}
+
+.about-header p {
+  font-size: 50px;
+  color: #1D1D1D;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  padding: 0 70px;
+}
+
+.about-image {
+  margin-bottom: 30px;
+}
+
+.about-image img {
+  width: 565px;
+  height: auto;
+}
+
+.about-text {
+  text-align: left;
+  margin-bottom: 30px;
+  padding-left: 60px;
+}
+
+.about-text p {
+  color: #464646;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.about-buttons {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.about-button {
+  padding: 10px 40px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #E97F01;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 20px;
+  box-shadow: 0 4px 5px rgb(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.story-button {
+    padding: 10px 40px;
+    font-size: 16px;
+    color: #E97F01;
+    border: 2px solid #E97F01;
+    background-color: transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 20px;
+    font-weight: bold;
+}
+
+.portfolio{
+  margin-bottom: 80px;
+}
+
+.port-header {
+  margin-bottom: 50px;
+}
+
+.port-header h5 {
+  font-size: 28px;
+  color: #E97F01; 
+  margin-bottom: 10px;
+}
+
+.port-header h2 {
+  font-size: 50px;
+  color: #1D1D1D;
+}
+
+.port-header p {
+  color: #464646;
+  margin-bottom: 10px;
+  font-size: 22px;  
+}
+
+.port-images {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+
+.template-button {
+  padding: 10px 40px;
+  font-size: 16px;
+  color: #E97F01;
+  border: 2px solid #E97F01;
+  background-color: transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 20px;
+  font-weight: bold;
+}
+
+.test-header h5 {
+  font-size: 28px;
+  color: #E97F01; 
+  margin-bottom: 10px;
+}
+
+.test-header h2 {
+  font-size: 50px;
+  color: #1D1D1D;  
+}
+
+.getting-started {
+  display: flex;
+  margin: 200px 20px;
+}
+
+.start-text {
+  text-align: left;
+  padding: 20px 80px;
+}
+
+.start-text h2 {
+  text-align: left;
+  font-size: 50px;
+  color: #1D1D1D; 
+}
+
+.start-text p {
+  color: #464646;
+  margin-bottom: 10px;
+  font-size: 22px;   
+}
+
+.create-button {
+  padding: 10px 40px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #E97F01;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 20px;
+  box-shadow: 0 4px 5px rgb(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.start-images {
+  margin: 50px;
 }
 
 /*Homepage styling*/
