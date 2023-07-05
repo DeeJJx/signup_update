@@ -14,6 +14,9 @@ const Dashboard = () => {
     const [addressOne, setAddressOne] = useState("");
     const [addressTwo, setAddressTwo] = useState("");
     const [telephone, setTelephone] = useState("");
+    const [facebook, setFacebook] = useState("");
+    const [twitter, setTwitter] = useState("");
+    const [instagram, setInstagram] = useState("");
     const [isLoading, setIsLoading] = useState("");
   
     // const {update, error, isLoading} = useUpdate();
@@ -23,16 +26,19 @@ const Dashboard = () => {
         setAddressOne("");
         setAddressTwo("");
         setTelephone("");
+        setFacebook("");
+        setTwitter("");
+        setInstagram("");
       };
 
-    const update = async (name, addressOne, addressTwo, telephone) => {
+    const update = async (name, addressOne, addressTwo, telephone, facebook, twitter, instagram) => {
         setIsLoading(true);
         // setError(null);
 
         const response = await fetch(`/api/user/${user.id}`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({name, addressOne, addressTwo, telephone})
+            body: JSON.stringify({name, addressOne, addressTwo, telephone, facebook, twitter, instagram})
         })
         const json = await response.json();
 
@@ -47,6 +53,9 @@ const Dashboard = () => {
             setAddressOne(json.addressOne);
             setAddressTwo(json.addressTwo);
             setTelephone(json.telephone);
+            setFacebook(json.facebook);
+            setTwitter(json.twitter);
+            setInstagram(json.instagram);
 
             //set details state
             const userDetailsArray = Object.values(json);
@@ -59,7 +68,7 @@ const Dashboard = () => {
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-      await update(name, addressOne, addressTwo, telephone);
+      await update(name, addressOne, addressTwo, telephone, facebook, twitter, instagram);
     };
 
     useEffect(() => {
@@ -130,6 +139,36 @@ const Dashboard = () => {
                         type="text"
                         onChange={(e) => setTelephone(e.target.value)}
                         value={telephone}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label>Facebook URL:</label>
+                        <input
+                        className="form-input"
+                        type="text"
+                        onChange={(e) => setFacebook(e.target.value)}
+                        value={facebook}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label>Twitter URL:</label>
+                        <input
+                        className="form-input"
+                        type="text"
+                        onChange={(e) => setTwitter(e.target.value)}
+                        value={twitter}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label>Instagram URL:</label>
+                        <input
+                        className="form-input"
+                        type="text"
+                        onChange={(e) => setInstagram(e.target.value)}
+                        value={instagram}
                         />
                     </div>
 
