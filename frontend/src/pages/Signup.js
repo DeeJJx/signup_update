@@ -8,13 +8,16 @@ const Signup = () => {
   const [addressOne, setAddressOne] = useState("");
   const [addressTwo, setAddressTwo] = useState("");
   const [telephone, setTelephone] = useState("");
+  const [facebook, setFacebook] = useState("");
+  const [twitter, setTwitter] = useState("");
+  const [instagram, setInstagram] = useState("");
 
   const {signup, error, isLoading} = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await signup(email, password, name, addressOne, addressTwo, telephone);
+    await signup(email, password, name, addressOne, addressTwo, telephone, facebook, twitter, instagram);
   };
 
   return (
@@ -80,6 +83,36 @@ const Signup = () => {
           value={telephone}
         />
       </div>
+
+      <div className="form-group">
+        <label>Facebook URL:</label>
+        <input
+        className="form-input"
+        type="text"
+        onChange={(e) => setFacebook(e.target.value)}
+        value={facebook}
+        />
+      </div>
+
+    <div className="form-group">
+        <label>Twitter URL:</label>
+        <input
+        className="form-input"
+        type="text"
+        onChange={(e) => setTwitter(e.target.value)}
+        value={twitter}
+        />
+    </div>
+
+    <div className="form-group">
+        <label>Instagram URL:</label>
+        <input
+        className="form-input"
+        type="text"
+        onChange={(e) => setInstagram(e.target.value)}
+        value={instagram}
+        />
+    </div>
 
       <button className="submit-button" disabled={isLoading} type="submit">
         Sign Up

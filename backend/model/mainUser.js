@@ -29,12 +29,24 @@ const mainUserSchema = new Schema({
     telephone: {
         type: String,
         required: false
+    },
+    facebook: {
+        type: String,
+        required: false
+    },
+    twitter: {
+        type: String,
+        required: false
+    },
+    instagram: {
+        type: String,
+        required: false
     }
     //if adding postcode here - must add in userController
 })
 
 //static signup method
-mainUserSchema.statics.signup = async function(email, password, name, addressOne, addressTwo, telephone) {
+mainUserSchema.statics.signup = async function(email, password, name, addressOne, addressTwo, telephone, facebook, twitter, instagram) {
 
     //validation
     if(!email || !password){
@@ -56,7 +68,7 @@ mainUserSchema.statics.signup = async function(email, password, name, addressOne
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
 
-    const mainUser = await this.create({email, password: hash, name, addressOne, addressTwo, telephone});
+    const mainUser = await this.create({email, password: hash, name, addressOne, addressTwo, telephone, facebook, twitter, instagram});
 
     return mainUser;
 }

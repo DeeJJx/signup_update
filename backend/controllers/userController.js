@@ -24,9 +24,9 @@ const loginUser = async(req, res) => {
 //signup user
 const signupUser = async (req, res) => {
 
-    const {email, password, name, addressOne, addressTwo, telephone} = req.body;
+    const {email, password, name, addressOne, addressTwo, telephone, facebook, twitter, instagram} = req.body;
     try {
-        const user = await mainUser.signup(email, password, name, addressOne, addressTwo, telephone);
+        const user = await mainUser.signup(email, password, name, addressOne, addressTwo, telephone, facebook, twitter, instagram);
 
         //create a token
         const token = createToken(user._id);
@@ -55,7 +55,10 @@ const getUser = async(req, res) => {
         name: user.name,
         addressOne: user.addressOne,
         addressTwo: user.addressTwo,
-        telephone: user.telephone
+        telephone: user.telephone,
+        facebook: user.facebook,
+        twitter: user.twitter,
+        instagrma: user.instagram
     });
 }
 
@@ -78,7 +81,10 @@ const updateUser = async(req, res) => {
         name: user.name,
         addressOne: user.addressOne,
         addressTwo: user.addressTwo,
-        telephone: user.telephone
+        telephone: user.telephone,
+        facebook: user.facebook,
+        twitter: user.twitter,
+        instagrma: user.instagram
     });
 }
 
