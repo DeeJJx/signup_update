@@ -472,6 +472,7 @@
 
 .port-item {
   position: relative;
+  margin-bottom: 30px;
 }
 
 .item-title {
@@ -545,6 +546,24 @@
   margin-right: -40px;
 }
 
+@media screen and (max-width: 768px) {
+  .hero-content {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .about-content {
+    flex-wrap: wrap;
+  }
+
+  .port-images {
+    flex-direction: column;
+  }
+
+  .getting-started {
+    flex-wrap: wrap-reverse;
+  }
+}
 
 /*Homepage styling*/
 
