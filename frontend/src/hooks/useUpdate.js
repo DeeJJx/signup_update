@@ -6,14 +6,14 @@ export const useUpdate = () => {
     const [isLoading, setIsLoading] = useState(null);
     const {user, dispatch} = useAuthContext();
 
-    const update = async (name, addressOne, addressTwo, telephone) => {
+    const update = async (name, addressOne, addressTwo, telephone, facebook, twitter, instagram) => {
         setIsLoading(true);
         setError(null);
 
         const response = await fetch(`/api/user/${user.id}`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({name, addressOne, addressTwo, telephone})
+            body: JSON.stringify({name, addressOne, addressTwo, telephone, facebook, twitter, instagram})
         })
         const json = await response.json();
 

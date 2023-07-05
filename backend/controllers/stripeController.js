@@ -45,7 +45,6 @@ const createCheckoutSession = async(req, res) => {
     
 
     // This is your Stripe CLI webhook secret for testing your endpoint locally.
-// const endpointSecret = "whsec_a1fecb7bf3b832a22347c8b0c3ed6caef8b59aeefbf334a372d6e60e833dd4b2";
 
 const fulfillOrderFromCheckout = (req, res) => {
     const payload = req.body;
