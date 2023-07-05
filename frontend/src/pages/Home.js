@@ -66,7 +66,7 @@ const Home = () => {
       <div className="about">
         <div className="about-header">
           <h5>About Us</h5>
-          <p>Our Team</p>
+          <h2>Our Team</h2>
         </div>
         <div className="about-content">
           <div className="about-image">
@@ -89,9 +89,18 @@ const Home = () => {
           <p>Choose from our custom website templates tailored to your trade - set up and ready to go the same day</p>
         </div>
         <div className="port-images">
-          <img src={electricianImage} alt="electrician" />
-          <img src={plumberImage} alt="plumber" />
-          <img src={landscaperImage} alt="landscaper" />
+          <div className="port-item">
+            <img src={electricianImage} alt="electrician" />
+            <h3 className="item-title">Electrician</h3>
+          </div>
+          <div className="port-item">
+            <img src={plumberImage} alt="plumber" />
+            <h3 className="item-title">Plumber</h3>
+          </div>
+          <div className="port-item">
+            <img src={landscaperImage} alt="landscaper" />
+            <h3 className="item-title">Landscaper</h3>
+          </div>
         </div>
         <button className="template-button">See All Templates</button>
       </div>
