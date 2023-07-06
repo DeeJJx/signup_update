@@ -143,7 +143,7 @@
   background-color: rgb(38, 36, 38);
   padding: 30px;
   color: #fff;
-  font-family: Arial, sans-serif;
+  font-family: 'Quicksand', sans-serif;
   padding-top: 80px;
 }
 
@@ -524,7 +524,7 @@
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  margin: 20px;
+  margin: 40px 0;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
   font-weight: bold;
 }
@@ -547,6 +547,7 @@
 }
 
 @media screen and (max-width: 768px) {
+
   .hero-content {
     max-width: 100%;
     padding: 0 20px;
@@ -554,14 +555,37 @@
 
   .about-content {
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
 
   .port-images {
     flex-direction: column;
   }
 
+  .item-title {
+    left: 50%;
+  }
+
   .getting-started {
     flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .start-images {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home img {
+    max-width: 75%;
+  }
+
+  .start-images img{
+    max-width: 30%;
   }
 }
 
