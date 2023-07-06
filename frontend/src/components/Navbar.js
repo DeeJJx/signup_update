@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
+import Hamburger from './Hamburger';
+import React, { useState } from "react";
 
 const Navbar = () => {
 
     const {logout} = useLogout();
     const { user } = useAuthContext();
+    const [hamburgerOpen, setHamburgerOpen] = useState(false);
+
+    const toggleHamburger = () =>{
+        setHamburgerOpen(!hamburgerOpen)
+    }
 
     const handleClick = () => {
         logout();
@@ -16,28 +23,26 @@ const Navbar = () => {
                 <p>Twenny</p>
             </div>
             <div className="navbar-links">
-                {!user && (
                 <Link to="/home" className="home">Home</Link>
-                )}
-                {!user && (
                 <Link to="/about">About</Link>
-                )}
-                {!user && (
                 <Link to="/services">Services</Link>
-                )}
                 <Link to="/projects">Projects</Link>
-                {user && (
-                    <span>{user.email}</span>
-                )}
-                {user && (
-                    <button onClick={handleClick}>Logout</button>
-                )}
             </div>
             <div className="contact-us">
-                {!user && (
                 <Link to="/contactus">Contact Us</Link>    
-                )}
             </div>
+            <div className={`hamburger ${hamburgerOpen ? 'open' : ''}`} onClick={toggleHamburger}>
+                <Hamburger />
+            </div>
+            {hamburgerOpen && (
+                <div className="hamburger-links">
+                <Link to="/home" className="home">Home</Link>
+                <Link to="/about">About</Link>
+                <Link to="/services">Services</Link>
+                <Link to="/projects">Projects</Link>
+                <Link to="/contactus">Contact Us</Link>
+                </div>
+            )}
         </header>
     )
 }
