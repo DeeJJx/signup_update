@@ -173,6 +173,10 @@
   margin-top: 30px;
 }
 
+.footer-links > div:nth-child(3) a:not(.title) {
+  margin-bottom: -30px; /* Not sure what was happening here, spacing of links under Company column was much more than spacing of links under Terms column */
+}
+
 .footer-links a:hover {
   text-decoration: underline;
 }
@@ -201,6 +205,28 @@
   height: 1px;
   margin-bottom: 10px;
   background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    max-width: 100%;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-links > div {
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .footer-links > div:nth-child(4){
+    margin-top: 20px; /* Had to include this due to -30px margin bottom in Company column */
+  }
 }
 
 /* footer */

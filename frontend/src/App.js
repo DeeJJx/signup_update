@@ -16,6 +16,7 @@ import Terms from './pages/Terms';
 import Sitemap from './pages/Sitemap';
 import ContactUs from './pages/ContactUs';
 import CheckDomain from './pages/CheckDomain';
+import AboutUs from './pages/AboutUs'
 
 
 //templates
@@ -91,6 +92,10 @@ function App() {
               <Route
               path='/contactus'
               element={<ContactUs />}
+              />
+              <Route
+              path='/aboutus'
+              element={<AboutUs />}
               />
               <Route
               path='/domain-search'
