@@ -45,8 +45,8 @@ const Navbar = () => {
         <Link to="/services">Services</Link>
         <Link to="/projects">Projects</Link>
       </div>
-      <div className="contact-us">
-        <Link to="/contactus">Contact Us</Link>
+      <div className="login">
+        <Link to="/login">Sign up / Log in</Link>
       </div>
       <div className={`hamburger ${hamburgerOpen ? 'open' : ''}`} ref={hamburgerRef} onClick={toggleHamburger}>
         <Hamburger />
@@ -59,7 +59,7 @@ const Navbar = () => {
           <Link to="/about">About</Link>
           <Link to="/services">Services</Link>
           <Link to="/projects">Projects</Link>
-          <Link to="/contactus">Contact Us</Link>
+          <Link to="/login">Sign up / Log in</Link>
         </div>
       )}
     </header>
