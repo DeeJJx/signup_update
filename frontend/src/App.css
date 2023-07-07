@@ -414,7 +414,7 @@
 
 .home h5 {
   font-family: 'Quicksand', sans-serif;
-  font-size: 28px;
+  font-size: 1.75rem;
   color: #E97F01; 
   margin-bottom: 10px;
 }
@@ -423,12 +423,12 @@
   font-family: 'Quicksand', sans-serif;
   color: #464646;
   margin-bottom: 10px;
-  font-size: 22px;
+  font-size: 1.375rem;
 }
 
 .home h2{
   font-family: 'Mate', sans-serif;
-  font-size: 50px;
+  font-size: 3.125rem;
   color: #1D1D1D; 
 }
 
@@ -449,6 +449,7 @@
   margin: 20px;
   box-shadow: 0 4px 5px rgb(0, 0, 0, 0.5);
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .hero-actions {
@@ -460,7 +461,7 @@
 }
 
 .hero-content h1 {
-  font-size: 64px;
+  font-size: 4rem;
   font-family: 'Mate', sans-serif;
   margin-bottom: 100px;
   margin-top: 50px;
@@ -516,6 +517,7 @@
   margin: 20px;
   box-shadow: 0 4px 5px rgb(0, 0, 0, 0.5);
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .story-button {
@@ -528,6 +530,7 @@
     cursor: pointer;
     margin: 20px;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .portfolio{
@@ -656,11 +659,31 @@
   }
 
   .home img {
-    max-width: 75%;
+    max-width: 80%;
   }
 
-  .start-images img{
-    max-width: 30%;
+  .start-images img {
+    max-width: 50%;
+  }
+
+  .home h5 {
+    font-size: 1rem;
+  }
+
+  .home p {
+    font-size: 0.8rem;
+  }
+
+  .home h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .home button {
+    font-size: 0.5rem;
   }
 }
 
