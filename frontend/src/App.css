@@ -229,10 +229,6 @@
   margin-top: 30px;
 }
 
-.footer-links > div:nth-child(3) a:not(.title) {
-  margin-bottom: -30px; /* Not sure what was happening here, spacing of links under Company column was much more than spacing of links under Terms column */
-}
-
 .footer-links a:hover {
   text-decoration: underline;
 }
@@ -280,9 +276,6 @@
     margin-bottom: 20px;
   }
 
-  .footer-links > div:nth-child(4){
-    margin-top: 20px; /* Had to include this due to -30px margin bottom in Company column */
-  }
 }
 
 /* footer */
@@ -477,7 +470,7 @@
   font-family: 'Pathway Gothic One', sans-serif;
 }
 
-.about {
+.home .about {
   padding: 40px 0;
 }
 
