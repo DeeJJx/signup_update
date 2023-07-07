@@ -190,6 +190,10 @@
   .contact-us{
     display: none;
   }
+
+  .navbar {
+    padding-top: 10px;
+  }
 }
 /* navbar */
 
@@ -649,6 +653,7 @@
     flex-wrap: wrap-reverse;
     justify-content: center;
     align-items: center;
+    margin: -20px 0;
   }
   
   .start-images {
@@ -659,11 +664,11 @@
   }
 
   .home img {
-    max-width: 80%;
+    max-width: 80vw;
   }
 
   .start-images img {
-    max-width: 50%;
+    max-width: 40%;
   }
 
   .home h5 {
@@ -680,10 +685,24 @@
 
   .hero-content h1 {
     font-size: 2rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 
   .home button {
     font-size: 0.5rem;
+  }
+
+  .pages {
+    margin-top: -30px;
+  }
+
+  .about-text {
+    padding-left: 0;
+  }
+
+  .home .about {
+    padding: 0;
   }
 }
 
