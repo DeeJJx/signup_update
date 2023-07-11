@@ -647,8 +647,12 @@
     align-items: center;
   }
 
+  .portfolio {
+    margin-bottom: 20px;
+  }
   .port-images {
     flex-direction: column;
+    margin-bottom: 0px;
   }
 
   .item-title {
