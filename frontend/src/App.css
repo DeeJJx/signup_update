@@ -279,8 +279,24 @@
   .footer-links > div {
     align-items: center;
     margin-bottom: 20px;
+    position: relative;
   }
 
+  .footer-links a {
+    display: none;
+  }
+
+  .footer-links p {
+    display: none;
+  }
+
+  .footer-links > div:hover > a {
+    display: block;
+  }
+
+  .footer-links > div:hover > p {
+    display: block;
+  }
 }
 
 /* footer */
