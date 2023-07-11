@@ -197,6 +197,7 @@
 }
 /* navbar */
 
+
 /* footer */
 
 .footer {
@@ -633,6 +634,11 @@
   .hero-content {
     max-width: 100%;
     padding: 0 20px;
+  }
+
+  .hero-actions {
+    margin-top: 0px;
+    padding-top: 0px;
   }
 
   .about-content {
