@@ -650,9 +650,15 @@
   .portfolio {
     margin-bottom: 20px;
   }
+
   .port-images {
     flex-direction: column;
     margin-bottom: 0px;
+  }
+
+  .port-header p {
+    max-width: 70%;
+    margin: 0 auto;
   }
 
   .item-title {
