@@ -297,6 +297,10 @@
   .footer-links > div:hover > p {
     display: block;
   }
+
+  .footer-links .logo {
+    margin-right: 0px;
+  }
 }
 
 /* footer */
