@@ -245,6 +245,12 @@
   align-items: center;
 }
 
+.footer-bottom .icons a{
+  margin: 10px;
+  font-size: 24px;
+  color: white;
+}
+
 .icons {
   display: flex;
   justify-content: center;

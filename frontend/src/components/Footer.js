@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
 
@@ -37,10 +40,10 @@ const Footer = () => {
               <div className="title" onClick={() => handleClick(0)}>
                 Terms and Policies
                 {isActive[0] && (
-                    <span className="mobile-icon">&times;</span> // Cross icon when open (visible in mobile)
+                    <span className="mobile-icon">&times;</span> // Cross
                 )}
                 {!isActive[0] && (
-                    <span className="mobile-icon">&#9660;</span> // Right arrow when closed (visible in mobile)
+                    <span className="mobile-icon">&#9660;</span> // Down Arrow
                 )}
               </div>
               <div className={isActive[0] ? '' : 'hide'}>
@@ -52,10 +55,10 @@ const Footer = () => {
               <div className="title" onClick={() => handleClick(1)}>
                 Company
                 {isActive[1] && (
-                    <span className="mobile-icon">&times;</span> // Cross icon when open (visible in mobile)
+                    <span className="mobile-icon">&times;</span>
                 )}
                 {!isActive[1] && (
-                    <span className="mobile-icon">&#9660;</span> // Right arrow when closed (visible in mobile)
+                    <span className="mobile-icon">&#9660;</span>
                 )}
               </div>
               <div className={isActive[1] ? '' : 'hide'}>
@@ -68,10 +71,10 @@ const Footer = () => {
               <div className="title" onClick={() => handleClick(2)}>
                 Contact
                 {isActive[2] && (
-                    <span className="mobile-icon">&times;</span> // Cross icon when open (visible in mobile)
+                    <span className="mobile-icon">&times;</span> 
                 )}
                 {!isActive[2] && (
-                    <span className="mobile-icon">&#9660;</span> // Right arrow when closed (visible in mobile)
+                    <span className="mobile-icon">&#9660;</span>
                 )}
               </div>
               <div className={isActive[2] ? '' : 'hide'}>
@@ -83,10 +86,10 @@ const Footer = () => {
               <div className="title" onClick={() => handleClick(3)}>
                 Location
                 {isActive[3] && (
-                    <span className="mobile-icon">&times;</span> // Cross icon when open (visible in mobile)
+                    <span className="mobile-icon">&times;</span> 
                 )}
                 {!isActive[3] && (
-                    <span className="mobile-icon">&#9660;</span> // Right arrow when closed (visible in mobile)
+                    <span className="mobile-icon">&#9660;</span>
                 )}
               </div>
               <div className={isActive[3] ? '' : 'hide'}>
@@ -99,8 +102,12 @@ const Footer = () => {
           </div>
             <div className="footer-bottom">
                 <div className="icons">
-                    FB IG IN MAIL TWITTER 
-                </div>
+                <a href="https://www.facebook.com"><FontAwesomeIcon icon={faFacebook} /></a>
+                <a href="https://www.instagram.com"><FontAwesomeIcon icon={faInstagram} /></a>
+                <a href="https://www.linkedin.com"><FontAwesomeIcon icon={faLinkedin} /></a>
+                <a href="mailto:twenny@gmail.com"><FontAwesomeIcon icon={faEnvelope} /></a>
+                <a href="https://www.twitter.com"><FontAwesomeIcon icon={faTwitter} /></a>
+              </div>
                 <div className="line"></div>
                 <div className="copyright">
                     <p>{`Copyright © ${year} Twenny Ltd. All Rights Reserved`}</p>
