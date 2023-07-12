@@ -1,10 +1,25 @@
 import { Link } from 'react-router-dom';
-import {useState} from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const Footer = () => {
 
     const year = new Date().getFullYear();
     const [isActive, setisActive] = useState(Array(4).fill(false));
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+      const handleOutsideClick = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+          setisActive(Array(4).fill(false));
+        }
+      };
+  
+      document.addEventListener('click', handleOutsideClick);
+  
+      return () => {
+        document.removeEventListener('click', handleOutsideClick);
+      };
+    }, []);
 
     const handleClick = (index) => {
         setisActive((prevState) => {
@@ -16,7 +31,7 @@ const Footer = () => {
 
       return (
         <div className="footer">
-          <div className="footer-links">
+          <div className="footer-links" ref={dropdownRef}>
             <div className="logo">Twenny</div>
             <div className="tos">
               <div className="title" onClick={() => handleClick(0)}>
