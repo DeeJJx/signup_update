@@ -106,6 +106,9 @@
 
 .logo {
   margin-right: 20px;
+  margin-left: 20px;
+  color: #E97F01;
+  font-size: 30px;
 }
 
 .navbar-links {

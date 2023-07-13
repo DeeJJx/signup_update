@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes, faHammer } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const { logout } = useLogout();
@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="logo">
-        <p>Twenny</p>
+        <FontAwesomeIcon icon={faHammer} />
       </div>
       <div className="navbar-links">
         <Link to="/home" className="home">
