@@ -138,20 +138,8 @@
 
 .hamburger {
   display: none;
-  width: 2rem;
-  height: 2rem;
-  justify-content: space-around;
-  flex-flow: column nowrap;
-  z-index: 10;
-}
-
-.burger {
-  width: 2rem;
-  height: 0.25rem;
-  border-radius: 10px;
-  background-color: #E97F01;
-  transform-origin: 1px;
-  transition: all 0.3s linear;
+  color: #E97F01;
+  font-size: 30px;
 }
 
 .hamburger-links {
@@ -245,10 +233,14 @@
   align-items: center;
 }
 
-.footer-bottom .icons a{
+.footer-bottom .icons a {
   margin: 10px;
   font-size: 24px;
   color: white;
+}
+
+.footer-bottom .icons :hover {
+  color: #E97F01;
 }
 
 .icons {

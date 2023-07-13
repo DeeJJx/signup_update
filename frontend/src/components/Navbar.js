@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
-import Hamburger from './Hamburger';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const { logout } = useLogout();
@@ -49,7 +50,7 @@ const Navbar = () => {
         <Link to="/login">Sign up / Log in</Link>
       </div>
       <div className={`hamburger ${hamburgerOpen ? 'open' : ''}`} ref={hamburgerRef} onClick={toggleHamburger}>
-        <Hamburger />
+        <FontAwesomeIcon icon={hamburgerOpen ? faTimes : faBars} />
       </div>
       {hamburgerOpen && (
         <div className="hamburger-links">
