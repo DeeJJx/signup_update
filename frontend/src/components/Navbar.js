@@ -4,6 +4,7 @@ import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faHammer } from '@fortawesome/free-solid-svg-icons';
+import logoImage from '../images/LogoMakr-8w9wRe.png'
 
 const Navbar = () => {
   const { logout } = useLogout();
@@ -36,7 +37,7 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="logo">
-        <FontAwesomeIcon icon={faHammer} />
+        <img src={logoImage} alt="logo" />
       </div>
       <div className="navbar-links">
         <Link to="/home" className="home">

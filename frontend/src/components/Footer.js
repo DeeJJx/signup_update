@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faHammer } from '@fortawesome/free-solid-svg-icons';
+import logoImage from '../images/LogoMakr-8w9wRe.png'
 
 const Footer = () => {
 
@@ -35,7 +36,7 @@ const Footer = () => {
       return (
         <div className="footer">
           <div className="footer-links" ref={dropdownRef}>
-            <div className="logo"><FontAwesomeIcon icon={faHammer} /></div>
+            <div className="logo"><img src={logoImage} alt="logo" /></div>
             <div className="tos">
               <div className="title" onClick={() => handleClick(0)}>
                 Terms and Policies
