@@ -122,6 +122,10 @@
   color: black;
 }
 
+.navbar-links a:hover {
+  color: #E97F01;
+}
+
 .navbar-links a.home {
   font-weight: bold;
 }

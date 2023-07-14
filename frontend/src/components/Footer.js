@@ -63,7 +63,7 @@ const Footer = () => {
                 )}
               </div>
               <div className={isActive[1] ? '' : 'hide'}>
-                <Link to="/home" className="home">Home</Link>
+                <Link to="/" className="home">Home</Link>
                 <Link to="/aboutus" className="about">About Us</Link>
                 <Link to="/contactus" className="contactus">Contact Us</Link>
               </div>
