@@ -94,7 +94,7 @@ function App() {
               element={<ContactUs />}
               />
               <Route
-              path='/aboutus'
+              path='/about'
               element={<AboutUs />}
               />
               <Route
