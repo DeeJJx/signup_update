@@ -814,6 +814,90 @@
   text-align: left;  
 }
 
+.core-values {
+  display: flex;
+  margin-top: 50px;
+}
+
+.core-image {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 10px;
+}
+
+.core-text {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 30px 60px;
+  text-align: left;
+}
+
+.why-choose {
+  display: flex;
+  margin-top: 50px;
+}
+
+.why-choose-image {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 10px;  
+}
+
+.why-choose-text {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 30px 60px;
+  text-align: left;  
+}
+
+.about-us .testimonials {
+  margin-top: 50px;
+}
+
+.about-us .social-impact {
+  margin-top: 50px;
+}
+
+.about-us .contact-us {
+  margin-top: 50px;
+}
+
+.about-us .contact-us button {
+  padding: 10px 40px;
+  font-size: 16px;
+  color: #E97F01;
+  border: 2px solid #E97F01;
+  background-color: transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+  
+  .about-us img {
+    max-width: 70vw;
+  }
+
+  .mission {
+    flex-direction: column-reverse;
+  }
+
+  .meet-founders {
+    flex-direction: column;
+  }
+
+  .core-values {
+    flex-direction: column-reverse;
+  }
+
+  .why-choose {
+    flex-direction: column;
+  }
+}
+
 /*About Us styling*/
 
 /* checkout styling */

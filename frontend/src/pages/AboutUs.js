@@ -1,6 +1,8 @@
 import React from 'react';
 import builderLaptopImage from '../images/builder-laptop.jpg'
 import usImage from '../images/us.png'
+import codingImage from '../images/coding.jpg'
+import cementImage from '../images/cement.jpg'
 
 const AboutUs = () => {
     return (
@@ -32,19 +34,25 @@ const AboutUs = () => {
                     <div className="meet-image"><img src={usImage} alt="us" /></div>
                 </div>
                 <div className="core-values">
-                    <h3>Our Core Values</h3>
-                    <p>
-                        At Twenny, we believe in transparency, simplicity, and unwavering support for our users. We're committed to providing you with a seamless website creation experience, personalized feedback, and easy accessibility.
-                        Your success is our success, and we're dedicated to being there for you every step of the way.
-                    </p>
+                    <div className="core-image"><img src={codingImage} alt="coding" /></div>
+                    <div className="core-text">
+                        <h3>Our Core Values</h3>
+                        <p>
+                            At Twenny, we believe in transparency, simplicity, and unwavering support for our users. We're committed to providing you with a seamless website creation experience, personalized feedback, and easy accessibility.
+                            Your success is our success, and we're dedicated to being there for you every step of the way.
+                        </p>
+                    </div>
                 </div>
-                <div className="why-choose-twenny">
-                    <h3>Why Choose Twenny?</h3>
-                    <p>
-                        Our platform stands out for one simple reason: it's designed by tradespeople, for tradespeople.
-                        We understand the challenges you face, which is why we've made setting up your website as easy as using your favorite tools.
-                        No coding skills? No problem! Twenny's intuitive interface empowers you to craft a stunning website that highlights your skills and attracts potential clients.
-                    </p>
+                <div className="why-choose">
+                    <div className="why-choose-text">
+                        <h3>Why Choose Twenny?</h3>
+                        <p>
+                            Our platform stands out for one simple reason: it's designed by tradespeople, for tradespeople.
+                            We understand the challenges you face, which is why we've made setting up your website as easy as using your favorite tools.
+                            No coding skills? No problem! Twenny's intuitive interface empowers you to craft a stunning website that highlights your skills and attracts potential clients.
+                        </p>
+                    </div>
+                    <div className="why-choose-image"><img src={cementImage} alt="cement" /></div>
                 </div>
                 <div className="testimonials">
                     <h3>Testimonials (Coming Soon)</h3>
@@ -65,6 +73,7 @@ const AboutUs = () => {
                 <h2>Thank you for joining us on this journey to revolutionize the way trade professionals showcase their expertise. We can't wait to see your business thrive with Twenny.</h2>
                 <p>For any inquiries or feedback, don't hesitate to reach out. We're here to help you shine online.</p>
                 <p><em>Stay tuned for the launch of Twenny, your go-to platform for creating exceptional websites that work as hard as you do.</em></p>
+                <button>Contact us</button>
             </div>
         </div>
     )
