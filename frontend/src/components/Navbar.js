@@ -64,6 +64,7 @@ const Navbar = () => {
           <Link to="/login">Sign up / Log in</Link>
         </div>
       )}
+      <div className="nav-line"></div>
     </header>
   );
 };
