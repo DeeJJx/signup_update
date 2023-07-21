@@ -1,4 +1,5 @@
 import React from 'react';
+import ContactForm from '../components/ContactForm';
 
 const ContactUs = () => {
   return (
@@ -16,11 +17,9 @@ const ContactUs = () => {
 
       <div className="email-us-box">
         <h3>Email Us</h3>
-        <p>Send us an email at <a href="mailto:twenny@gmail.com">twenny@gmail.com</a> and our team will get back to you promptly.</p>
+        <p>Send us an email at <a href="mailto:twenny@gmail.com">twenny@gmail.com</a> or use the contact form below and our team will get back to you promptly.</p>
       </div>
-
-      {/* You can add the contact form component here */}
-      {/* Add the necessary form fields and logic to handle form submissions */}
+      <ContactForm />
     </div>
   );
 };
