@@ -1,6 +1,6 @@
 const Privacy = () => {
     return (
-        <div className='privacy'>
+        <div className='privacy_policy'>
             <h2>PRIVACY POLICY</h2>
 
             <h4>Last updated July 26, 2023</h4>
