@@ -941,6 +941,15 @@
 
 /*Contact Us styling*/
 
+/*Privacy Policy styling*/
+
+.privacy {
+  text-align: left;
+  margin: 50px 40px;
+}
+
+/*Privacy Policy styling*/
+
 /*Contact Form styling*/
 
 .contact-form {
@@ -1003,10 +1012,6 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-
-h2 {
-  text-align: center;
 }
 
 form {
