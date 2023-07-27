@@ -24,37 +24,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// Nodemailer configuration
-const transporter = nodemailer.createTransport({
-  service: 'Gmail',
-  auth: {
-    user: 'twenny@gmail.com', 
-    pass: 'PASSWORD' // Will need to change this to match password once set up
-  }
-});
-
-// Endpoint to handle email sending
-app.post('/api/send-email', (req, res) => {
-  const { name, email, message } = req.body;
-
-  const mailOptions = {
-    from: 'twenny@gmail.com', // Not sure if this is correct, may interfere with order success email etc.
-    to: 'twenny@gmail.com',
-    subject: 'Contact Form Submission',
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email:', error);
-      res.status(500).json({ error: 'Failed to send email' });
-    } else {
-      console.log('Email sent:', info.response);
-      res.status(200).json({ message: 'Email sent successfully' });
-    }
-  });
-});
-
 // Routes
 app.use('/api/user', mainUserRoutes);
 app.use('/api/early-access', earlyAccessUserRoutes);
