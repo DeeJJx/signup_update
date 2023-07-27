@@ -22,7 +22,7 @@ const Privacy = () => {
             <p><b>In what situations and with which third parties do we share personal information?</b> We may share information in specific situations and with specific third parties. Learn more about <a href="#when_we_share">when and with whom we share your personal information.</a></p>
             <p><b>How do we keep your information safe?</b> We have organisational and technical processes and procedures in place to protect you personal information. However, no electronic transmission over the internet can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorised third parties will not be able to defeat our security and improperly collect, access, steal or modify your information. Learn more about <a href="keep_info_safe">how we keep your information safe.</a></p>
             <p><b>What are your rights?</b> Depending on where you are located geographically, the applicable privacy laws mean you have certain rights regarding your personal information. Learn more about <a href="#privacy_rights">your privacy rights.</a></p>
-            <p><b>How do you exercise your rights?</b> The easiest way to exercise you rights is by submitting a <a href="#data_subject_access_request">data subject access request</a>, or by contacting us at twenny@gmail.com. We will consider and act upon any request in accordance with applicable data protection laws.</p>
+            <p><b>How do you exercise your rights?</b> The easiest way to exercise you rights is by submitting a <a href="data_subject_access_request">data subject access request</a>, or by contacting us at twenny@gmail.com. We will consider and act upon any request in accordance with applicable data protection laws.</p>
             <p>Want to learn more about what we do with any information we collect? Review the privacy notice in full below.</p>
 
 
@@ -142,6 +142,35 @@ const Privacy = () => {
             <ul><li>Log in to your account settings and update your user account.</li></ul>
             <p>Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, we may reatain some information in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our legal terms and/or comply with applicable legal requirements.</p>
             <p><b><u>Cookies and similar technologies:</u></b> Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Services. For further information. please see our Cookie Notice: <a href="http://www.twenny.co.uk/cookies">http://www.twenny.co.uk/cookies</a>.</p>
+            <p>If you have any question or comments about your privacy rights, you may email us at twennyCommunication@gmail.com.</p>
+        
+        
+            <h3><a id="do_not_track"></a>10. CONTROLS FOR DO-NOT-TRACK FEATURES</h3>
+
+            <p>Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track ('DNT') feature or setting you can activate to signal your privacy preference not to have data about your online browsing monitored and collected. At this stage no uniform technology standard for recognising and implementing DNT signals had been finalised. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.</p>
+
+
+            <h3><a id="updates_notice">11. DO WE MAKE UPDATES TO THIS NOTICE?</a></h3>
+
+            <p><b>In Short:</b> Yes, we will update this notice as necessary to stay compliant with relevant laws.</p>
+            <p>We may update this privacy notice from time to time. The updated version will be indicated by an updated 'Revised' date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.</p>
+
+
+            <h3><a id="contact_notice">12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a></h3>
+
+            <p>If you have question about this notice, you may email us at twennyCommunication@gmail.com or contact us by post at:</p>
+            <p></p>
+            <p>Twenny Inc</p>
+            <p>3 Sandpiper Drive</p>
+            <p>Flat 5</p>
+            <p>Edinburgh, Midlothian EH6 4UL</p>
+            <p>United Kingdom</p>
+
+
+            <h3><a id="review_data">13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</a></h3>
+
+            <p>Based on the applicable laws of your country, you may have the right to request access to the personal information we collect from you, change that information, or delete it. To request to review, update, or delete your personal information, please fill out and submit a <a href="data_subject_access_request">data subject access request</a>.</p>
+            <p>This privacy policy was created using Termly's Privacy Policy Generator.</p>
         </div>
     )
 }

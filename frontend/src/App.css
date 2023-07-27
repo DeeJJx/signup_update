@@ -945,7 +945,30 @@
 
 .privacy_policy {
   text-align: left;
-  margin: 50px 40px;
+  margin: 50px 80px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.privacy_policy h2 {
+  margin-top: 80px;
+  font-size: 2em;
+}
+
+.privacy_policy h4 {
+  font-size: 1.3em;
+}
+
+.privacy_policy h3 {
+  margin-top: 70px;
+  font-size: 1.6em;
+}
+
+.privacy_policy p {
+  margin-top: 30px;
+}
+
+.privacy_policy li {
+  margin-top: 20px;
 }
 
 /*Privacy Policy styling*/
