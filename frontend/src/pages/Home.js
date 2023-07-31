@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import buildersImage from '../images/builders.jpg';
 import usImage from '../images/us.png'
 import electricianImage from '../images/electrician.png'
@@ -76,7 +77,7 @@ const Home = () => {
             <p>Our founders, James and Dan, come from working-class backgrounds and understand the value of having big ol muscles. They also understand that working in trades leaves little time for messing around with websites, which is why they founded Twenny.</p>
             <p>With Twenny, you'll enjoy a hassle-free experience from start to finish. Our easy-to-use website creation platform is specifically designed for tradespeople like you. No coding skills? No problem! We've simplified the process so you can focus on what you do best—providing exceptional services</p>
             <div className="about-buttons">
-              <button className="about-button">About Us</button>
+              <Link to="/about"><button className="about-button">About Us</button></Link>
               <button className="story-button">Our Story</button>
             </div>
           </div>
