@@ -50,6 +50,7 @@ const Footer = () => {
               <div className={isActive[0] ? '' : 'hide'}>
                 <Link to="/terms" className="terms">Terms of Service</Link>
                 <Link to="/privacy" className="privacy">Privacy Policy</Link>
+                <Link to="/cookies" className="cookies">Cookie Policy</Link>
               </div>
             </div>
             <div className="company">

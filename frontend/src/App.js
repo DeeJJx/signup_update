@@ -16,7 +16,8 @@ import Terms from './pages/Terms';
 import Sitemap from './pages/Sitemap';
 import ContactUs from './pages/ContactUs';
 import CheckDomain from './pages/CheckDomain';
-import AboutUs from './pages/AboutUs'
+import AboutUs from './pages/AboutUs';
+import Cookies from './pages/Cookies';
 
 
 //templates
@@ -84,6 +85,10 @@ function App() {
               <Route
               path='/terms'
               element={<Terms />}
+              />
+              <Route
+              path='/cookies'
+              element={<Cookies />}
               />
               <Route
               path='/sitemap'

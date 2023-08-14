@@ -973,6 +973,58 @@
 
 /*Privacy Policy styling*/
 
+/*Terms and Condtions styling*/
+
+.terms_and_conditions {
+  text-align: left;
+  margin: 60px 90px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.terms_and_conditions h2 {
+  margin-top: 80px;
+  font-size: 2em;
+}
+
+.terms_and_conditions h4 {
+  font-size: 1.3em;
+}
+
+.terms_and_conditions h3 {
+  margin-top: 70px;
+  font-size: 1.6em;
+}
+
+/*Terms and Condtions styling*/
+
+/*Cookie Policy styling*/
+
+.cookie_policy {
+  text-align: left;
+  margin: 60px 90px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cookie_policy h2 {
+  margin-top: 80px;
+  font-size: 2em;
+}
+
+.cookie_policy h4 {
+  font-size: 1.3em;
+}
+
+.cookie_policy h3 {
+  margin-top: 70px;
+  font-size: 1.6em;
+}
+
+.cookie_policy li {
+  margin-top: 20px;
+}
+
+/*Cookie Policy styling*/
+
 /*Contact Form styling*/
 
 .contact-form {
