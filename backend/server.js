@@ -4,6 +4,7 @@ const mainUserRoutes = require('./routes/user');
 const earlyAccessUserRoutes = require('./routes/earlyAccessUser');
 const stripeRoutes = require('./routes/stripe');
 const emailRoutes = require('./routes/autoEmail');
+const genRoutes = require('./routes/siteGen');
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
@@ -29,6 +30,7 @@ app.use('/api/user', mainUserRoutes);
 app.use('/api/early-access', earlyAccessUserRoutes);
 app.use('/api/stripe', stripeRoutes);
 app.use('/api/email', emailRoutes);
+app.use('/api/gen', genRoutes);
 
 app.get('/', (req, res) => {
   console.log("we're connected");
