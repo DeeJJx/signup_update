@@ -30,13 +30,39 @@ const OrderSuccess = () => {
             const json = await response.json();
 
             if(response.ok){
+                console.log(json);
                 const userDetailsArray = Object.values(json); // Convert JSON object to an array
                 setUserDetails(userDetailsArray);    
+                console.log(userDetails);
+            }
+        }
+
+        const createNextApp = async () => {
+            const response = await fetch(`/api/gen/next-gen`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    //needs to be dynamic & based on the site type purchased
+                    // "appName": `${user.token}-siteType`,
+                    "appName": `bricky-site`,
+                    "uniqueId": user.id
+                })
+            })
+
+            const json = await response.json();
+
+            if(!response.ok){
+                 console.log(json.error);
+            }
+    
+            if(response.ok){
+                console.log('site created')
             }
         }
 
         if(user){
             fetchUserDetails();
+            createNextApp();
         }        
     }, [user])
 
@@ -57,9 +83,12 @@ const OrderSuccess = () => {
         }
     }
 
-    if(userDetails){
-        emailConfirmation(userDetails)
-    }
+    useEffect(() => {
+        if (userDetails && userDetails.length > 0) {
+            console.log('emailConfirmation useffect')
+            emailConfirmation(userDetails);
+        }
+    }, [userDetails]);
 
 
   return (

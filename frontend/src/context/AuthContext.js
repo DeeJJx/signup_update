@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect, useState } from "react";
+import { createContext, useReducer, useEffect } from "react";
 
 export const AuthContext = createContext();
 
@@ -17,34 +17,28 @@ export const authReducer = (state, action) => {
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
+    //ideally would set user:state.user but cannot use state before initialisation
     user: null,
   });
 
   useEffect(() => {
+    // Check for user in local storage before rendering anything
     const user = JSON.parse(localStorage.getItem("user"));
 
+    if (user && state.user === null) {
+      console.log(state.user, 'state user')
+      dispatch({ type: "LOGIN", payload: user });
+    }
+  },[]); // This effect runs only once when the component mounts, can ignore the warnings
+
+  // this allows users to be null but also checks when a user is null - is there a user in local storage, if so then dispatch login
+  //used to prevent user === null on page refresh
+  if (state.user === null) {
+    const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
       dispatch({ type: "LOGIN", payload: user });
     }
-  }, []);
-
-  //seems to be a very hacky way of getting around the user not being authenticated on page refresh //
-
-  // Add a loading state to indicate when the authentication state is being fetched
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(false);
-  }, [state.user]);
-
-  console.log("AuthContext state ", state);
-
-  // Render a loading state while the authentication state is being fetched
-  if (loading) {
-    return <div>Loading...</div>;
   }
-
-//seems to be a very hacky way of getting around the user not being authenticated on page refresh //
 
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>

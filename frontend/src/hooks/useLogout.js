@@ -1,4 +1,5 @@
 import { useAuthContext } from "./useAuthContext";
+import { Navigate } from 'react-router-dom';
 
 export const useLogout = () => {
     const { dispatch } = useAuthContext();
@@ -10,6 +11,7 @@ export const useLogout = () => {
         //dispatch logout action
         dispatch({ type: 'LOGOUT' });
 
+        <Navigate to="/" />
     }
 
     return { logout }

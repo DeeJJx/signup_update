@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes, faHammer } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import logoImage from '../images/LogoMakr-8w9wRe.png'
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
     setHamburgerOpen(!hamburgerOpen);
   };
 
-  const handleClick = () => {
+  const handleLogout = () => {
     logout();
   };
 
@@ -48,7 +48,7 @@ const Navbar = () => {
         <Link to="/projects">Projects</Link>
       </div>
       <div className="login">
-        <Link to="/login">Sign up / Log in</Link>
+      {user ? <button onClick={handleLogout}>Logout</button> : <div><Link to="/login">Log in</Link><br></br><Link to="/signup">Sign Up</Link></div> }
       </div>
       <div className={`hamburger ${hamburgerOpen ? 'open' : ''}`} ref={hamburgerRef} onClick={toggleHamburger}>
         <FontAwesomeIcon icon={hamburgerOpen ? faTimes : faBars} />
@@ -61,7 +61,7 @@ const Navbar = () => {
           <Link to="/about">About</Link>
           <Link to="/services">Services</Link>
           <Link to="/projects">Projects</Link>
-          <Link to="/login">Sign up / Log in</Link>
+          {user ? <button onClick={handleLogout}>Logout</button> : <Link to="/login">Sign up / Log in</Link> }
         </div>
       )}
       <div className="nav-line"></div>

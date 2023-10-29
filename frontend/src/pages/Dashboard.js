@@ -73,6 +73,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchUserDetails = async() => {
+            if(user) {
             const response = await fetch(`/api/user/${user.id}`, {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
@@ -86,12 +87,12 @@ const Dashboard = () => {
                 setUserDetails(userDetailsArray);    
             }
         }
+    }
 
         if(user){
             fetchUserDetails();
-        }        
+        }       
     }, [user])
-
     return (
         <div>
             <h3>Dashboard</h3>
