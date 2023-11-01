@@ -2,11 +2,14 @@ import image from '../images/bricky.jpg';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useEffect, useState } from "react";
 import DomainSearchBar from '../components/DomainSearchBar';
+import { useProductSelectionContext } from '../hooks/useProductSelectionContext';
 
 
 
 const OrderPreview = () => {
   const productId = localStorage.getItem("productId") || "empty product ID";
+  const {product} = useProductSelectionContext();
+  console.log(product)
   const { user } = useAuthContext();
   const [userDetails, setUserDetails] = useState({});
 

@@ -37,7 +37,9 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="logo">
-        <img src={logoImage} alt="logo" />
+        <Link to="/"> 
+         <img src={logoImage} alt="logo" />
+        </Link>
       </div>
       <div className="navbar-links">
         <Link to="/" className="home">
@@ -46,6 +48,7 @@ const Navbar = () => {
         <Link to="/about">About</Link>
         <Link to="/services">Services</Link>
         <Link to="/projects">Projects</Link>
+        <Link to="/templates">Templates</Link>
       </div>
       <div className="login">
       {user ? <button onClick={handleLogout}>Logout</button> : <div><Link to="/login">Log in</Link><br></br><Link to="/signup">Sign Up</Link></div> }

@@ -1,6 +1,7 @@
 import './App.css';
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import { useAuthContext } from './hooks/useAuthContext';
+import { ProductSelectionContextProvider } from './context/ProductSelectionContext';
 
 //pages
 import Home from './pages/Home';
@@ -36,8 +37,29 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Navbar />
-        <div className='pages'>
-          <Routes>
+        {/* <div className='pages'> */}
+              <ProductSelectionContextProvider>
+              <Routes>
+                <Route
+                  path='/order-success'
+                  // element={<OrderSuccess />}
+                  element={user ? <OrderSuccess /> : <Navigate to="/" />}
+                  />
+                 <Route
+                  path='/order-preview'
+                  element={<OrderPreview />}
+                  />
+                  <Route
+                  path='/dashboard'
+                  element={user ? <Dashboard /> : <Navigate to="/" />}
+                  />
+                 <Route
+                  path='/templates/bricky'
+                  element={<Bricky />}
+                  />
+              </Routes>
+              </ProductSelectionContextProvider>
+              <Routes>
               <Route 
               path='/' 
               element={<Home />}
@@ -55,14 +77,6 @@ function App() {
               element={!user ? <Login /> : <Navigate to="/dashboard" />}
               />
               <Route
-              path='/dashboard'
-              element={user ? <Dashboard /> : <Navigate to="/" />}
-              />
-              <Route
-              path='/templates/bricky'
-              element={<Bricky />}
-              />
-              <Route
               path='/checkout'
               element={<Checkout />}
               />
@@ -70,15 +84,7 @@ function App() {
               path='/domain-search'
               element={<CheckDomain />}
               />
-              <Route
-              path='/order-success'
-              // element={<OrderSuccess />}
-              element={user ? <OrderSuccess /> : <Navigate to="/" />}
-              />
-              <Route
-              path='/order-preview'
-              element={<OrderPreview />}
-              />
+
               <Route
               path='/privacy'
               element={<Privacy />}
@@ -108,7 +114,7 @@ function App() {
               element={<CheckDomain />}
               />
           </Routes>
-        </div>
+        {/* </div> */}
         <Footer />
       </BrowserRouter>
     </div>

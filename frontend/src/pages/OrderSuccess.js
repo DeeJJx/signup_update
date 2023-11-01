@@ -1,10 +1,14 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useAuthContext } from "../hooks/useAuthContext";
-
+import { useProductSelectionContext } from '../hooks/useProductSelectionContext';
 
 const OrderSuccess = () => {
   const {user} = useAuthContext();
+
+  const {product} = useProductSelectionContext();
+  console.log(product)
+  
   const [userDetails, setUserDetails] = useState({});
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -44,7 +48,7 @@ const OrderSuccess = () => {
                 body: JSON.stringify({
                     //needs to be dynamic & based on the site type purchased
                     // "appName": `${user.token}-siteType`,
-                    "appName": `bricky-site`,
+                    "appName": `${product}-site-${user.id}`,
                     "uniqueId": user.id
                 })
             })
@@ -85,7 +89,6 @@ const OrderSuccess = () => {
 
     useEffect(() => {
         if (userDetails && userDetails.length > 0) {
-            console.log('emailConfirmation useffect')
             emailConfirmation(userDetails);
         }
     }, [userDetails]);

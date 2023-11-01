@@ -5,11 +5,14 @@ const fs = require("fs");
 // SWAP ${APPNAME} FOR 'APPNAME' to preview order success from react
 const createNextApp = (appName, uniqueId) => {  
 
+  const product = appName.split("-")[0];
+
   try {
     // Step 1: Create the app using create-next-app
     console.log('Creating a new next app...');
     const appPath = path.join(process.cwd(), appName);
-    const uniqueId = '643e704577ba2c459fdd2a8b'; // Replace with your actual unique ID
+    // names ie "landscape" must match "product" to work - currently only got "landscape" starter and NO "landscape" product lmao
+    // execSync(`npx create-next-app --example https://github.com/DeeJJx/${product}-starter ${appName} --unique-id=${uniqueId}`, { stdio: 'inherit', cwd: process.cwd() });
     execSync(`npx create-next-app --example https://github.com/DeeJJx/landscape-starter ${appName} --unique-id=${uniqueId}`, { stdio: 'inherit', cwd: process.cwd() });
 
     // Step 2: Move the generated app folder to the correct path

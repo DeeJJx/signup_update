@@ -1,11 +1,18 @@
 import { useAuthContext } from '../../hooks/useAuthContext';
+import { useProductSelectionContext } from '../../hooks/useProductSelectionContext';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Bricky = () => {
   const { user } = useAuthContext();
+  const { productState, productDispatch } = useProductSelectionContext();
 
   const [userDetails, setUserDetails] = useState({});
+
+  const handleProductSelection = () => {
+    productDispatch({type: "UPDATE", payload: "bricky"})
+    localStorage.setItem("product", "bricky");
+  }
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -57,6 +64,7 @@ const Bricky = () => {
           pathname: "/order-preview",
         }}
         className="buy-now-link"
+        onClick={handleProductSelection}
         >
           Buy Now
         </Link>

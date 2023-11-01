@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useProductSelectionContext } from "../hooks/useProductSelectionContext";
 
 //context & useUpdate not required? kept changing user context and logging user out essentially
 // import { useUpdate } from "../hooks/useUpdate";
@@ -8,6 +9,10 @@ import { useAuthContext } from "../hooks/useAuthContext";
 const Dashboard = () => {
     const [userDetails, setUserDetails] = useState([]);
     const {user} = useAuthContext();
+    
+    const {product} = useProductSelectionContext();
+
+
 
     //FORM STUFF
     const [name, setName] = useState("");
@@ -93,9 +98,10 @@ const Dashboard = () => {
             fetchUserDetails();
         }       
     }, [user])
+
     return (
         <div>
-            <h3>Dashboard</h3>
+            <h3>Dashboard - Template {product}</h3>
             {userDetails.length > 0 && userDetails.map((detail, index) => (
                 <p key={index}>{detail}</p>
             ))}
