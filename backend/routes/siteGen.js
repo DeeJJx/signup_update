@@ -7,13 +7,13 @@ const { createNextApp } = require('../controllers/siteGenController');
 
 //signup route
 router.post('/next-gen', (req, res) => {
-    const { appName } = req.body;
+    const { appName, uniqueId } = req.body;
   
-    if (!appName) {
+    if (!appName || !uniqueId) {
       return res.status(400).json({ error: 'Please provide a name for your Next app.' });
     }
   
-    const result = createNextApp(appName);
+    const result = createNextApp(appName, uniqueId);
     res.json(result);
   });
 

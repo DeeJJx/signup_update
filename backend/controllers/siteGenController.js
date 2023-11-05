@@ -6,6 +6,7 @@ const fs = require("fs");
 const createNextApp = (appName, uniqueId) => {  
 
   const product = appName.split("-")[0];
+  console.log(uniqueId)
 
   try {
     // Step 1: Create the app using create-next-app
@@ -13,23 +14,33 @@ const createNextApp = (appName, uniqueId) => {
     const appPath = path.join(process.cwd(), appName);
     // names ie "landscape" must match "product" to work - currently only got "landscape" starter and NO "landscape" product lmao
     // execSync(`npx create-next-app --example https://github.com/DeeJJx/${product}-starter ${appName} --unique-id=${uniqueId}`, { stdio: 'inherit', cwd: process.cwd() });
-    execSync(`npx create-next-app --example https://github.com/DeeJJx/landscape-starter ${appName} --unique-id=${uniqueId}`, { stdio: 'inherit', cwd: process.cwd() });
+    // execSync(`npx create-next-app --example https://github.com/DeeJJx/landscape-starter ${appName} --unique-id=${uniqueId}`, { stdio: 'inherit', cwd: process.cwd() });
+    execSync(`npx create-next-app --example https://github.com/DeeJJx/landscape-starter ${appName}`, { stdio: 'inherit', cwd: process.cwd() });
 
     // Step 2: Move the generated app folder to the correct path
-    const appFolderName = `${appName}-next-app`;
+    const appFolderName = `${appName}-parent-folder`;
     const newPath = path.join(process.cwd(), appFolderName);
     fs.renameSync(appPath, newPath);
 
     // Step 3: Move into the app's folder
     process.chdir(newPath);
 
-    // Step 4: Update the package.json scripts to include a custom start command
+    // Step 5: Create an .env.local file with the MongoDB URI and userID
+    const envFilePath = path.join(newPath, '.env.local');
+    const mongoDBURI = process.env.DBURI; // Replace with your MongoDB URI
+
+    const envContent = `${mongoDBURI}\nuniqueId=${uniqueId}`;
+
+
+    fs.writeFileSync(envFilePath, `MONGODB_URI=${envContent}`);
+
+    // Step 6: Update the package.json scripts to include a custom start command
     const packageJsonPath = path.join(newPath, 'package.json');
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
     packageJson.scripts.start = 'next-scripts start';
     fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
-    // Step 5: Move the app folder three parent directories higher - into twenny parent, maybe need 4 directories higher for server
+    // Step 7: Move the app folder three parent directories higher - into twenny parent, maybe need 4 directories higher for server
     const grandparentPath = path.resolve(__dirname, '../../../');
     const newAppPath = path.join(grandparentPath, appFolderName);
     fs.renameSync(newPath, newAppPath);
