@@ -15,7 +15,8 @@ const sendAutoEmail = async (req, res) => {
 
     const mailOptions = {
         from: 'twennyCommunication@gmail.com',
-        to: ['j-j0001@hotmail.com', 'daniel.turnbull94@gmail.com'],
+        // to: ['j-j0001@hotmail.com', 'daniel.turnbull94@gmail.com'],
+        to: ['j-j0001@hotmail.com'],
         subject: 'User details test',
         text: userDetails
     };
