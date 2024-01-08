@@ -9,7 +9,7 @@ const Privacy = () => {
                 <li>Visit our website at <a href="http://www.twenny.co.uk">www.twenny.co.uk</a>, or any website of ours that links to this privacy notice</li>
                 <li>Engage with us in other related ways, including and marketing, sales or events</li>
             </ul>
-            <p><b>Questions or concerns?</b> Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices please do not use our Services. If you still have any questions or concerns, please contact us at twenny@gmail.com</p>
+            <p><b>Questions or concerns?</b> Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices please do not use our Services. If you still have any questions or concerns, please contact us at twennyCommunications@gmail.com</p>
 
 
             <h3>SUMMARY OF KEY POINTS</h3> 
@@ -22,7 +22,7 @@ const Privacy = () => {
             <p><b>In what situations and with which third parties do we share personal information?</b> We may share information in specific situations and with specific third parties. Learn more about <a href="#when_we_share">when and with whom we share your personal information.</a></p>
             <p><b>How do we keep your information safe?</b> We have organisational and technical processes and procedures in place to protect you personal information. However, no electronic transmission over the internet can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorised third parties will not be able to defeat our security and improperly collect, access, steal or modify your information. Learn more about <a href="keep_info_safe">how we keep your information safe.</a></p>
             <p><b>What are your rights?</b> Depending on where you are located geographically, the applicable privacy laws mean you have certain rights regarding your personal information. Learn more about <a href="#privacy_rights">your privacy rights.</a></p>
-            <p><b>How do you exercise your rights?</b> The easiest way to exercise you rights is by submitting a <a href="data_subject_access_request">data subject access request</a>, or by contacting us at twenny@gmail.com. We will consider and act upon any request in accordance with applicable data protection laws.</p>
+            <p><b>How do you exercise your rights?</b> The easiest way to exercise you rights is by submitting a <a href="data_subject_access_request">data subject access request</a>, or by contacting us at twennyCommunications@gmail.com. We will consider and act upon any request in accordance with applicable data protection laws.</p>
             <p>Want to learn more about what we do with any information we collect? Review the privacy notice in full below.</p>
 
 

@@ -17,7 +17,7 @@ const ContactUs = () => {
 
       <div className="email-us-box">
         <h3>Email Us</h3>
-        <p>Send us an email at <a href="mailto:twenny@gmail.com">twenny@gmail.com</a> or use the contact form below and our team will get back to you promptly.</p>
+        <p>Send us an email at <a href="mailto:twennyCommunications@gmail.com">twennyCommunications@gmail.com</a> or use the contact form below and our team will get back to you promptly.</p>
       </div>
       <ContactForm />
     </div>

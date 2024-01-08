@@ -81,7 +81,7 @@ const Footer = () => {
               </div>
               <div className={isActive[2] ? '' : 'hide'}>
                 <p>(+44)749 645 4598</p>
-                <p>twenny@gmail.com</p>
+                <p>twennyCommunications@gmail.com</p>
               </div>
             </div>
             <div className="location">
@@ -107,7 +107,7 @@ const Footer = () => {
                 <a href="https://www.facebook.com"><FontAwesomeIcon icon={faFacebook} /></a>
                 <a href="https://www.instagram.com"><FontAwesomeIcon icon={faInstagram} /></a>
                 <a href="https://www.linkedin.com"><FontAwesomeIcon icon={faLinkedin} /></a>
-                <a href="mailto:twenny@gmail.com"><FontAwesomeIcon icon={faEnvelope} /></a>
+                <a href="mailto:twennyCommunications@gmail.com"><FontAwesomeIcon icon={faEnvelope} /></a>
                 <a href="https://www.twitter.com"><FontAwesomeIcon icon={faTwitter} /></a>
               </div>
                 <div className="line"></div>
