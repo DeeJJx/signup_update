@@ -258,6 +258,11 @@
   color: #E97F01;
 }
 
+.footer-links .contact .hide {
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
 .icons {
   display: flex;
   justify-content: center;
