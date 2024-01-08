@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +11,7 @@ const Navbar = () => {
   const { user } = useAuthContext();
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const hamburgerRef = useRef(null);
+  const location = useLocation();
 
   const toggleHamburger = () => {
     setHamburgerOpen(!hamburgerOpen);
@@ -42,13 +43,21 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-links">
-        <Link to="/" className="home">
+        <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>
           Home
         </Link>
-        <Link to="/about">About</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/projects">Projects</Link>
-        <Link to="/templates">Templates</Link>
+        <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}>
+          About
+        </Link>
+        <Link to="/services" className={`nav-link ${location.pathname === '/services' ? 'active' : ''}`}>
+          Services
+        </Link>
+        <Link to="/projects" className={`nav-link ${location.pathname === '/projects' ? 'active' : ''}`}>
+          Projects
+        </Link>
+        <Link to="/templates" className={`nav-link ${location.pathname === '/templates' ? 'active' : ''}`}>
+          Templates
+        </Link>
       </div>
       <div className="login">
       {user ? <button onClick={handleLogout}>Logout</button> : <div><Link to="/login">Log in</Link><br></br><Link to="/signup">Sign Up</Link></div> }

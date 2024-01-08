@@ -132,11 +132,13 @@
 }
 
 .navbar-links a:hover {
-  color: #E97F01;
+  background-color: rgba(255, 145, 0, 0.1);
+  border-radius: 15px;
 }
 
-.navbar-links a.home {
+.navbar-links a.active {
   font-weight: bold;
+  color: #E97F01;
 }
 
 .login {
