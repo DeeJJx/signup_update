@@ -505,7 +505,7 @@
 }
 
 .home .hero-content p {
-  font-family: 'Pathway Gothic One', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .home .about {
@@ -659,6 +659,13 @@
 .start-images img:first-child {
   margin-top: 280px;
   margin-right: -40px;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .about-text {
+    padding-left: 20px;
+  }
 }
 
 @media screen and (max-width: 768px) {
