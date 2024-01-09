@@ -22,7 +22,7 @@ const Privacy = () => {
             <p><b>In what situations and with which third parties do we share personal information?</b> We may share information in specific situations and with specific third parties. Learn more about <a href="#when_we_share">when and with whom we share your personal information.</a></p>
             <p><b>How do we keep your information safe?</b> We have organisational and technical processes and procedures in place to protect you personal information. However, no electronic transmission over the internet can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorised third parties will not be able to defeat our security and improperly collect, access, steal or modify your information. Learn more about <a href="keep_info_safe">how we keep your information safe.</a></p>
             <p><b>What are your rights?</b> Depending on where you are located geographically, the applicable privacy laws mean you have certain rights regarding your personal information. Learn more about <a href="#privacy_rights">your privacy rights.</a></p>
-            <p><b>How do you exercise your rights?</b> The easiest way to exercise you rights is by submitting a <a href="data_subject_access_request">data subject access request</a>, or by contacting us at twennyCommunications@gmail.com. We will consider and act upon any request in accordance with applicable data protection laws.</p>
+            <p><b>How do you exercise your rights?</b> The easiest way to exercise you rights is by submitting a data subject access request, or by contacting us at twennyCommunications@gmail.com. We will consider and act upon any request in accordance with applicable data protection laws.</p>
             <p>Want to learn more about what we do with any information we collect? Review the privacy notice in full below.</p>
 
 
@@ -169,7 +169,7 @@ const Privacy = () => {
 
             <h3><a id="review_data">13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</a></h3>
 
-            <p>Based on the applicable laws of your country, you may have the right to request access to the personal information we collect from you, change that information, or delete it. To request to review, update, or delete your personal information, please fill out and submit a <a href="data_subject_access_request">data subject access request</a>.</p>
+            <p>Based on the applicable laws of your country, you may have the right to request access to the personal information we collect from you, change that information, or delete it. To request to review, update, or delete your personal information, please fill out and submit a data subject access request.</p>
             <p>This privacy policy was created using Termly's Privacy Policy Generator.</p>
         </div>
     )
