@@ -671,7 +671,23 @@
 @media screen and (max-width: 1024px) {
 
   .about-text {
-    padding-left: 20px;
+    padding-left: 40px;
+  }
+
+  .about-content {
+    justify-content: space-evenly;
+  }
+
+  .home .about img {
+    max-width: 40vw;
+  }
+
+  .home .port-images img {
+    max-width: 30vw;
+  }
+
+  .home .port-header p {
+    margin: 20px;
   }
 }
 
