@@ -41,6 +41,10 @@ const mainUserSchema = new Schema({
     instagram: {
         type: String,
         required: false
+    },
+    siteType: {
+        type: String,
+        required: false
     }
     //if adding postcode here - must add in userController
 })

@@ -6,14 +6,14 @@ export const useUpdate = () => {
     const [isLoading, setIsLoading] = useState(null);
     const {user, dispatch} = useAuthContext();
 
-    const update = async (name, addressOne, addressTwo, telephone, facebook, twitter, instagram) => {
+    const update = async ({name, addressOne, addressTwo, telephone, facebook, twitter, instagram, siteType}) => {
         setIsLoading(true);
         setError(null);
 
         const response = await fetch(`/api/user/${user.id}`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({name, addressOne, addressTwo, telephone, facebook, twitter, instagram})
+            body: JSON.stringify({name, addressOne, addressTwo, telephone, facebook, twitter, instagram, siteType})
         })
         const json = await response.json();
 
@@ -27,7 +27,8 @@ export const useUpdate = () => {
             // localStorage.setItem('user', JSON.stringify(json));
 
             //update the auth context
-            dispatch({type: 'UPDATE_USER', payload: json})
+            // dispatch({type: 'UPDATE_USER', payload: json})
+            console.log('updated in DB', json)
 
             setIsLoading(false);
         }

@@ -58,7 +58,8 @@ const getUser = async(req, res) => {
         telephone: user.telephone,
         facebook: user.facebook,
         twitter: user.twitter,
-        instagrma: user.instagram
+        instagram: user.instagram,
+        siteType: user.siteType
     });
 }
 
@@ -84,7 +85,8 @@ const updateUser = async(req, res) => {
         telephone: user.telephone,
         facebook: user.facebook,
         twitter: user.twitter,
-        instagrma: user.instagram
+        instagram: user.instagram,
+        siteType: user.siteType
     });
 }
 

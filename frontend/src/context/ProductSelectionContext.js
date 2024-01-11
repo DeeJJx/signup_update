@@ -6,6 +6,8 @@ export const productSelectionReducer = (state, action) => {
     switch (action.type) {
         case "UPDATE":
             return { product: action.payload };
+        case "DELETE":
+            return { product: null };
         default:
             return state;
     }
@@ -24,6 +26,8 @@ export const ProductSelectionContextProvider = ({ children }) => {
           console.log(productState.product, 'productState product')
           productDispatch({ type: "UPDATE", payload: productID });
         }
+        
+        // eslint-disable-next-line react-hooks/exhaustive-deps   
       },[]); // This effect runs only once when the component mounts, can ignore the warnings
     
       // this allows products to be null but also checks when a product is null - is there a product in local storage, if so then productDispatch UPDATE
@@ -32,7 +36,7 @@ export const ProductSelectionContextProvider = ({ children }) => {
         const productID = localStorage.getItem("product")
         if (productID) {
           productDispatch({ type: "UPDATE", payload: productID });
-        }
+        } 
       }
 
 

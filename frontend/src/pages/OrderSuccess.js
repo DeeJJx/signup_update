@@ -2,12 +2,14 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useProductSelectionContext } from '../hooks/useProductSelectionContext';
+import { useUpdate } from '../hooks/useUpdate';
 
 const OrderSuccess = () => {
   const {user} = useAuthContext();
-
-  const {product} = useProductSelectionContext();
+  const {product, productDispatch} = useProductSelectionContext();
   console.log(product)
+  const {update} = useUpdate();
+
   
   const [userDetails, setUserDetails] = useState({});
   const location = useLocation();
@@ -67,7 +69,13 @@ const OrderSuccess = () => {
         if(user){
             fetchUserDetails();
             createNextApp();
-        }        
+            update({siteType: product})
+            localStorage.removeItem('product');
+            localStorage.removeItem('productId');
+            productDispatch({ type: 'DELETE' });
+        }     
+        // missing dependencies causing infinite loop (product, update, userDetails)
+        // eslint-disable-next-line react-hooks/exhaustive-deps   
     }, [user])
 
     const emailConfirmation = async (userDetails) => {
