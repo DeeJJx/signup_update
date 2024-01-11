@@ -16,7 +16,7 @@ const Templates = () => {
       };
     
       return (
-        <div>
+        <div className="templates-page page">
           <h1>Trades Templates</h1>
           <ul className="item-list">
             {items.map((item, index) => (
