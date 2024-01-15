@@ -78,7 +78,6 @@ const Home = () => {
             <p>With Twenny, you'll enjoy a hassle-free experience from start to finish. Our easy-to-use website creation platform is specifically designed for tradespeople like you. No coding skills? No problem! We've simplified the process so you can focus on what you do best—providing exceptional services</p>
             <div className="about-buttons">
               <Link to="/about"><button className="about-button">About Us</button></Link>
-              <Link to="/about"><button className="story-button">Our Story</button></Link>
             </div>
           </div>
         </div>

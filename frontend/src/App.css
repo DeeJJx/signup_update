@@ -583,19 +583,6 @@ body {
   white-space: nowrap;
 }
 
-.story-button {
-    padding: 10px 40px;
-    font-size: 16px;
-    color: #E97F01;
-    border: 2px solid #E97F01;
-    background-color: transparent;
-    border-radius: 30px;
-    cursor: pointer;
-    margin: 20px;
-    font-weight: bold;
-    white-space: nowrap;
-}
-
 .portfolio{
   margin-bottom: 80px;
 }
