@@ -26,7 +26,7 @@ const Privacy = () => {
             <p>Want to learn more about what we do with any information we collect? Review the privacy notice in full below.</p>
 
 
-            <h3><a id="table_of_contents">TABLE OF CONTENTS</a></h3>
+            <h3 id="table_of_contents">TABLE OF CONTENTS</h3>
             <ol>
                 <li><a href="#personal_info">WHAT INFORMATION DO WE COLLECT?</a></li>
                 <li><a href="#how_we_process">HOW DO WE PROCESS YOUR INFORMATION?</a></li>
@@ -44,7 +44,7 @@ const Privacy = () => {
             </ol>
 
 
-            <h3><a id="personal_info">1. WHAT INFORMATION DO WE COLLECT?</a></h3>
+            <h3 id="personal_info">1. WHAT INFORMATION DO WE COLLECT?</h3>
             <h4>Personal information you disclose to us</h4>
             <p><b>In Short:</b> we collect personal information that you provide to us.</p>
             <p>We collect personal information that you voluntarily provide to us when you register on the Services, express an interest in obtaining information about us or our products and Services, when you participate in activities on the Services, or otherwise contact us.</p>
@@ -67,7 +67,7 @@ const Privacy = () => {
             <p>All personal information that you provide to us must be true, complete, and accurate, and you must notify us of any changes to such personal information.</p>
 
 
-            <h3><a id="how_we_process">2. HOW DO WE PROCESS YOUR INFORMATION?</a></h3>
+            <h3 id="how_we_process">2. HOW DO WE PROCESS YOUR INFORMATION?</h3>
             
             <p><b>In Short:</b> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process you information for other purposes with your consent.</p>
             <p><b>We process your personal information for a variety of reasons, depending on how you interact with our Services, including:</b></p>
@@ -82,7 +82,7 @@ const Privacy = () => {
             </ul>
 
 
-            <h3><a id="legal_bases"></a>3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR INFORMATION?</h3>
+            <h3 id="legal_bases">3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR INFORMATION?</h3>
             
             <p><b>In Short:</b> We only process your personla information when we believe it is necessary and we have a valid legal reason (i.e legal basis) to do so under applicable law, like with your consent, to comply with laws, to provide you with services to enter into or fulfil our contractual obligations, to protect your rights, or to fulfil our legitimate business interests.</p>
             <p>The General Data Protection Regulation (GDPR) and UK GDPR require us to explain the valid legal bases we rely on in order to process your personal information. As such, we may rely on the following legal bases to process you personal information:</p>
@@ -95,7 +95,7 @@ const Privacy = () => {
             </ul>
 
 
-            <h3><a id="when_we_share">4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</a></h3>
+            <h3 id="when_we_share">4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</h3>
             
             <p><b>In Short:</b> We may share information in specific situations described in this section and/or with the following third parties.</p>
             <p>We mau need to share your personal information in the following situations:</p>
@@ -104,38 +104,38 @@ const Privacy = () => {
             </ul>
 
 
-            <h3><a id="tracking_technologies">5. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</a></h3>
+            <h3 id="tracking_technologies">5. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</h3>
 
             <p><b>In Short:</b> We may use cookies and similar tracking technologies to collect and store your information.</p>
             <p>We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store your information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in out Cookie Notice: <a href="http://www.twenny.co.uk/cookies">http://www.twenny.co.uk/cookies</a></p>
 
 
-            <h3><a id="how_long_keep_info">6. HOW LONG DO WE KEEP YOUR INFORMATION?</a></h3>
+            <h3 id="how_long_keep_info">6. HOW LONG DO WE KEEP YOUR INFORMATION?</h3>
            
             <p><b>In Short:</b> We keep your information for as long as necessary to fulfil the purposes outlined in this privacy notice unless otherwise require by law.</p>
             <p>We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy notice, uless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements). No purpose in this notice will require us keeping your personal information for longer than three (3) months past the termination of the user's account.</p>
             <p>When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymise such information, or, if this is not possible (for example, becuase your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further process until deletion is possible.</p>
 
 
-            <h3><a id="keep_info_safe">7. HOW DO WE KEEP YOUR INFORMATION SAFE?</a></h3>
+            <h3 id="keep_info_safe">7. HOW DO WE KEEP YOUR INFORMATION SAFE?</h3>
            
             <p><b>In Short:</b> We aim to protect you personal information through a system of organisational and technical security measures.</p>
             <p>We have implemented appropriate and reasonable technical and organisational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorised third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Although we will do our best to protect you personal information, transmission of personal information to and from our Services is at your own risk. You should only access the Services within a secure environment.</p>
 
-            <h3><a id="minors"> 8. DO WE COLLECT INFORMATION FROM MINORS?</a></h3>
+            <h3 id="minors">8. DO WE COLLECT INFORMATION FROM MINORS?</h3>
 
             <p><b>In Short:</b> We do not knowingly collect data from or market to children under 18 years of age.</p>
             <p>We do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent's use of the Services. If we learn that personal information from users less that 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18, please contact us at twennyCommunication@gmail.com.</p>
 
 
-            <h3><a id="privacy_rights">9. WHAT ARE YOU PRIVACY RIGHTS?</a></h3>
+            <h3 id="privacy_rights">9. WHAT ARE YOU PRIVACY RIGHTS?</h3>
 
             <p><b>In Short:</b> In some regions, such as the European Economic Area (EEA) and the United Kingdom (UK), you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.</p>
             <p>In some regions (like the EEA and UK), you have certain right under applicable data protection laws. These may include the (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. You can make such a request by contacting us by using the contact details provided in the section <a href="#contact_notice">'HOW CAN YOU CONTACT US ABOUT THIS NOTICE?'</a> below.</p>
             <p>We will consider and act upon any request in accordance with applicable data protection laws.</p>
             <p>If you are located in the EEA or UK and you believe we are unlawfully processing your personal information, you also have the right to complain to your <a href="https://ec.europa.eu/newsroom/article29/items/612080">Member State data protection authority</a> or <a href="https://ico.org.uk/make-a-complaint/data-protection-complaints/data-protection-complaints/">UK data protection authority.</a></p>
             <p>If you are located in Switzerland, you may contact the <a href="https://www.edoeb.admin.ch/edoeb/en/home.html">Federal Data Protection and Information Commissioner.</a></p>
-            <p><b><u><a id="withdraw_consent">Withdrawing your consent:</a></u></b> If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. You can withdraw you consent at any time by contacting us by using the contact details provided in the section <a href="#contact_notice">HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a> below or updating your preferences.</p>
+            <p><b><u>Withdrawing your consent:</u></b> If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. You can withdraw you consent at any time by contacting us by using the contact details provided in the section <a href="#contact_notice">HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a> below or updating your preferences.</p>
             <p>However, please note that this will not affect the lawfulness of the processing before its withdrawal nor, will it affect processing of your personal information conducted in reliance on lawful processing grounds other than consent.</p>
             <h4>Account Information</h4>
             <p>If you would at any time like to review or change the information in your account or terminate your account, you can:</p>
@@ -145,18 +145,18 @@ const Privacy = () => {
             <p>If you have any question or comments about your privacy rights, you may email us at twennyCommunication@gmail.com.</p>
         
         
-            <h3><a id="do_not_track"></a>10. CONTROLS FOR DO-NOT-TRACK FEATURES</h3>
+            <h3 id="do_not_track">10. CONTROLS FOR DO-NOT-TRACK FEATURES</h3>
 
             <p>Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track ('DNT') feature or setting you can activate to signal your privacy preference not to have data about your online browsing monitored and collected. At this stage no uniform technology standard for recognising and implementing DNT signals had been finalised. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.</p>
 
 
-            <h3><a id="updates_notice">11. DO WE MAKE UPDATES TO THIS NOTICE?</a></h3>
+            <h3 id="updates_notice">11. DO WE MAKE UPDATES TO THIS NOTICE?</h3>
 
             <p><b>In Short:</b> Yes, we will update this notice as necessary to stay compliant with relevant laws.</p>
             <p>We may update this privacy notice from time to time. The updated version will be indicated by an updated 'Revised' date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.</p>
 
 
-            <h3><a id="contact_notice">12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a></h3>
+            <h3 id="contact_notice">12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</h3>
 
             <p>If you have question about this notice, you may email us at twennyCommunication@gmail.com or contact us by post at:</p>
             <p></p>
@@ -167,7 +167,7 @@ const Privacy = () => {
             <p>United Kingdom</p>
 
 
-            <h3><a id="review_data">13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</a></h3>
+            <h3 id="review_data">13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</h3>
 
             <p>Based on the applicable laws of your country, you may have the right to request access to the personal information we collect from you, change that information, or delete it. To request to review, update, or delete your personal information, please fill out and submit a data subject access request.</p>
             <p>This privacy policy was created using Termly's Privacy Policy Generator.</p>
