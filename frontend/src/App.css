@@ -55,20 +55,29 @@ body {
 
 /*form styles */
 
-.signup,
-.login {
+form.signup,
+form.login {
   display: flex;
   flex-direction: column;
   max-width: 400px;
-  margin: 0 auto;
+  min-width: 300px;
   padding: 20px;
   background-color: #f4f4f4;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.signup h3,
-.login h3 {
+form.signup .form-group .form-input,
+form.login .form-group .form-input {
+  height: 24px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+
+form.signup h3,
+form.login h3 {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -84,11 +93,7 @@ body {
   font-weight: bold;
 }
 
-.form-input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+
 
 .submit-button {
   padding: 10px;
@@ -157,14 +162,14 @@ body {
   margin: 0;
 }
 
-.login {
+.navbar .login {
   display: inline-block;
   padding: 10px 20px 10px 20px;
   border: 1px solid orange;
   border-radius: 20px;
 }
 
-.login a {
+.navbar .login a {
   color: orange;
   text-decoration: none;
 }
@@ -206,7 +211,7 @@ body {
     display: none;
   }
 
-  .login{
+  .navbar .login{
     display: none;
   }
 
@@ -1114,13 +1119,6 @@ label {
   margin-bottom: 10px;
 }
 
-input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
 button.checkout-button {
   display: block;
   width: 100%;
@@ -1158,3 +1156,13 @@ p.login-message {
   margin-bottom: 0.5rem;
 }
 /* domain search styling */
+
+/* login page / signup page */
+  .login-page,
+  .signup-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+  }
+/* login page / signup page */
