@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
-
+import electricianImage from '../images/electrician.png'
+import plumberImage from '../images/plumber.png'
+import landscaperImage from '../images/landscaper.png'
+import brickyImage from '../images/bricky.jpg'
 
 const Templates = () => {
     const [items, setItems] = useState([
-        { name: 'bricky', color: 'red' },
-        { name: 'landscaper', color: 'green' },
-        { name: 'plumber', color: 'blue' },
+        { name: 'bricky', img: brickyImage },
+        { name: 'landscaper', img: landscaperImage },
+        { name: 'plumber', img: plumberImage },
+        { name: 'electrician', img: electricianImage }
       ]);
     
       const handleClick = (item) => {
@@ -24,7 +28,7 @@ const Templates = () => {
                     key={index}
                     to={`/templates/${item.name}`}
                     className="item"
-                    style={{ backgroundColor: item.color }}
+                    style={{ backgroundImage: `url(${item.img})` }}
                     onClick={() => handleClick(item)}
                 >
                     {item.name}
