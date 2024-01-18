@@ -116,7 +116,7 @@ form.login h3 {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 30px 0;
+  padding: 15px 0;
   position: relative;
   max-width: 1440px;
   width: 100%;
@@ -142,6 +142,8 @@ form.login h3 {
   max-width: 1000px;
 }
 
+
+
 .navbar-links a {
   padding: 15px;
   text-decoration: none;
@@ -158,15 +160,28 @@ form.login h3 {
   color: #E97F01;
 }
 
-.navbar .login {
-  margin: 0;
+.navbar .login-container {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar .login-container .login button,
+.navbar .hamburger-links button {
+  color: orange;
+  border: none;
+  background-color: unset;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .navbar .login {
   display: inline-block;
-  padding: 10px 20px 10px 20px;
+  padding: 5px 10px;
   border: 1px solid orange;
   border-radius: 20px;
+  margin: 0;
 }
 
 .navbar .login a {
@@ -1166,3 +1181,9 @@ p.login-message {
     margin: 30px 0;
   }
 /* login page / signup page */
+
+/*dashboard page */
+  .dashboard-page {
+    margin: 0 auto;
+  }
+/*dashboard page */

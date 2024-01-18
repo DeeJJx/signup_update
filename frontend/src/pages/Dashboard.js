@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
-import { useProductSelectionContext } from "../hooks/useProductSelectionContext";
+// import { useProductSelectionContext } from "../hooks/useProductSelectionContext";
 
 //context & useUpdate not required? kept changing user context and logging user out essentially
 // import { useUpdate } from "../hooks/useUpdate";
@@ -10,7 +10,7 @@ const Dashboard = () => {
     const [userDetails, setUserDetails] = useState([]);
     const {user} = useAuthContext();
     
-    const {product} = useProductSelectionContext();
+    // const {product} = useProductSelectionContext();
 
 
 
@@ -100,7 +100,7 @@ const Dashboard = () => {
     }, [user])
 
     return (
-        <div>
+        <div className="dashboard-page">
             <h3>Dashboard - Template {userDetails[userDetails.length -1]}</h3>
             {userDetails.length > 0 &&
                 userDetails.slice(0, -1).map((detail, index) => (

@@ -23,7 +23,9 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (hamburgerRef.current && !hamburgerRef.current.contains(event.target)) {
+      if (hamburgerRef.current && 
+          !hamburgerRef.current.contains(event.target) &&
+          !event.target.closest('.hamburger-links')) {
         setHamburgerOpen(false);
       }
     };
@@ -33,7 +35,7 @@ const Navbar = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [hamburgerRef, setHamburgerOpen]);
 
   return (
     <header className="navbar">
@@ -59,21 +61,26 @@ const Navbar = () => {
           Templates
         </Link>
       </div>
-      <div className="login">
-      {user ? <button onClick={handleLogout}>Logout</button> : <div><Link to="/login">Log in</Link><br></br><Link to="/signup">Sign Up</Link></div> }
+      <div className='login-container'>
+      {user ? <div  className="login"><button onClick={handleLogout}>Logout</button></div> : <div className="login"><Link to="/login">Log in</Link></div> }
+      {user ? '' : <div className='login signup'><Link to="/signup">Sign Up</Link></div> }
       </div>
       <div className={`hamburger ${hamburgerOpen ? 'open' : ''}`} ref={hamburgerRef} onClick={toggleHamburger}>
         <FontAwesomeIcon icon={hamburgerOpen ? faTimes : faBars} />
       </div>
       {hamburgerOpen && (
         <div className="hamburger-links">
-          <Link to="/home" className="home">
+          <Link to="/" className="home">
             Home
           </Link>
           <Link to="/about">About</Link>
           <Link to="/services">Services</Link>
           <Link to="/projects">Projects</Link>
-          {user ? <button onClick={handleLogout}>Logout</button> : <Link to="/login">Sign up / Log in</Link> }
+          {user ? <button className='logout' onClick={handleLogout}>Logout</button> : 
+          <>
+          <Link to="/login">Log in</Link>
+          <Link to="/signup">Sign up</Link>
+          </> }
         </div>
       )}
       <div className="nav-line"></div>
