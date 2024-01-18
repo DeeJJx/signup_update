@@ -101,12 +101,16 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard-page">
-            <h3>Dashboard - Template {userDetails[userDetails.length -1]}</h3>
-            {userDetails.length > 0 &&
-                userDetails.slice(0, -1).map((detail, index) => (
-                    <p key={index}>{detail}</p>
-                ))
-            }
+            <div className="user-details-container"> 
+                <h3>Dashboard - Template {userDetails[userDetails.length -1]}</h3>
+                <ul className="user-details-list">
+                {userDetails.length > 0 &&
+                    userDetails.slice(0, -1).map((detail, index) => (
+                        <li key={index}>{detail}</li>
+                    ))
+                }
+                </ul>
+            </div>
             <div className="form-container">
                 <form className="signup" onSubmit={handleSubmit}>
                     <h3>Update</h3>

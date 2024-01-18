@@ -1184,6 +1184,25 @@ p.login-message {
 
 /*dashboard page */
   .dashboard-page {
-    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    margin: 25px 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .dashboard-page {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .dashboard-page .user-details-container ul {
+    padding: 0;
+  }
+
+  .dashboard-page .user-details-container li {
+    list-style: none;
+    margin-bottom: 10px;
   }
 /*dashboard page */
