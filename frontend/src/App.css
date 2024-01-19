@@ -695,6 +695,14 @@ form.login h3 {
   .home .port-header p {
     margin: 20px;
   }
+
+  .home .start-text {
+    min-width: 40%;
+  }
+
+  .home .start-images img {
+    max-width: 55%;
+  }
 }
 
 @media screen and (max-width: 768px) {
