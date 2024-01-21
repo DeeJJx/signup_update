@@ -51,12 +51,12 @@ const Navbar = () => {
         <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}>
           About
         </Link>
-        <Link to="/services" className={`nav-link ${location.pathname === '/services' ? 'active' : ''}`}>
+        {/* <Link to="/services" className={`nav-link ${location.pathname === '/services' ? 'active' : ''}`}>
           Services
         </Link>
         <Link to="/projects" className={`nav-link ${location.pathname === '/projects' ? 'active' : ''}`}>
           Projects
-        </Link>
+        </Link> */}
         <Link to="/templates" className={`nav-link ${location.pathname === '/templates' ? 'active' : ''}`}>
           Templates
         </Link>
@@ -74,8 +74,11 @@ const Navbar = () => {
             Home
           </Link>
           <Link to="/about">About</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/projects">Projects</Link>
+          {/* <Link to="/services">Services</Link>
+          <Link to="/projects">Projects</Link> */}
+          <Link to="/templates" className={`nav-link ${location.pathname === '/templates' ? 'active' : ''}`}>
+          Templates
+          </Link>
           {user ? <button className='logout' onClick={handleLogout}>Logout</button> : 
           <>
           <Link to="/login">Log in</Link>

@@ -10,8 +10,8 @@ const Bricky = () => {
   const [userDetails, setUserDetails] = useState({});
 
   const handleProductSelection = () => {
-    productDispatch({type: "UPDATE", payload: "bricky"})
-    localStorage.setItem("product", "bricky");
+    productDispatch({type: "UPDATE", payload: "Brick Layer"})
+    localStorage.setItem("product", "Brick Layer");
   }
 
   useEffect(() => {

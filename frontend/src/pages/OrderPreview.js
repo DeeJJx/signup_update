@@ -63,7 +63,7 @@ const OrderPreview = () => {
   }
 
   return (
-    <section>
+    <section className='order-preview-page'>
       <div className="product">
         <img
           src={image}
@@ -71,8 +71,12 @@ const OrderPreview = () => {
           className='order-preview-image'
         />
         <div className="description">
-        <h3>Brick Layer Site</h3>
-        <h5>$19.99</h5>
+        <h3>{product} Site Template</h3>
+        <h5>£19.98</h5>
+        <div className='price-breakdown'>
+            <p>Domain: 15.99 ||</p>
+            <p>Monthly: 3.99</p>
+        </div>
         <h3>Find your perfect site name using our tool below</h3>
         <DomainSearchBar />
         </div>
