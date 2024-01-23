@@ -7,6 +7,9 @@ const ContactForm = () => {
     message: ''
   });
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isEmailSent, setIsEmailSent] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -28,6 +31,7 @@ const ContactForm = () => {
       //console log to test email functionality working correctly
 
       if (response.ok) {
+        setIsEmailSent(true);
         console.log('Email sent successfully!');
       } else {
         console.error('Failed to send email.');
@@ -37,9 +41,10 @@ const ContactForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    sendEmail();
+    await sendEmail();
+    setIsSubmitted(true);
     setFormData({
       name: '',
       email: '',
@@ -82,6 +87,8 @@ const ContactForm = () => {
         />
       </div>
       <button type="submit">Send Message</button>
+      {isSubmitted && isEmailSent && (<p className="submission-confirmation">Thank you for your message. We will get back to you soon.</p>)}
+      {isSubmitted && !isEmailSent &&(<p className="submission-error">Something went wrong. Please try again later or email us at: twennyCommunications@gmail.com</p>)}
     </form>
   );
 };
