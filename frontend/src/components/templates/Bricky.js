@@ -10,28 +10,33 @@ const Bricky = () => {
   const [userDetails, setUserDetails] = useState({});
 
   const handleProductSelection = () => {
-    productDispatch({type: "UPDATE", payload: "Brick Layer"})
-    localStorage.setItem("product", "Brick Layer");
+    productDispatch({type: "UPDATE", payload: "Brick-Layer"})
+    const productSelection = {
+      productId: "bricky_id",
+      siteType: "Brick-Layer"
+    }
+    localStorage.setItem("productId", JSON.stringify(productSelection));
   }
 
   useEffect(() => {
-    const fetchUserDetails = async () => {
-      const response = await fetch(`/api/user/${user.id}`, {
-        headers: {
-          'Authorization': `Bearer ${user.token}`
-        }
-      });
+    // const fetchUserDetails = async () => {
+    //   const response = await fetch(`/api/user/${user.id}`, {
+    //     headers: {
+    //       'Authorization': `Bearer ${user.token}`
+    //     }
+    //   });
 
-      const json = await response.json();
-      console.log(json);
+    //   const json = await response.json();
+    //   console.log(json);
 
-      if (response.ok) {
-        setUserDetails(json);
-      }
-    };
+    //   if (response.ok) {
+    //     setUserDetails(json);
+    //   }
+    // };
 
     if (user) {
-      fetchUserDetails();
+      // fetchUserDetails();
+      setUserDetails(JSON.parse(localStorage.getItem('userDetails')));
     }
   }, [user]);
 

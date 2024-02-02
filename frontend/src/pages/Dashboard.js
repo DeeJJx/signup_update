@@ -89,7 +89,8 @@ const Dashboard = () => {
 
             if(response.ok){
                 const userDetailsArray = Object.values(json); // Convert JSON object to an array
-                setUserDetails(userDetailsArray);    
+                setUserDetails(userDetailsArray);
+                localStorage.setItem('userDetails', JSON.stringify(json))    
             }
         }
     }

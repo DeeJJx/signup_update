@@ -20,7 +20,7 @@ export const ProductSelectionContextProvider = ({ children }) => {
 
     useEffect(() => {
         // Check for product in local storage before rendering anything
-        const productID= localStorage.getItem("product");
+        const productID=localStorage.getItem("product");
     
         if (productID && productState.product === null) {
           console.log(productState.product, 'productState product')

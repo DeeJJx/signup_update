@@ -60,6 +60,7 @@ const Navbar = () => {
         <Link to="/templates" className={`nav-link ${location.pathname === '/templates' ? 'active' : ''}`}>
           Templates
         </Link>
+        {user ? <Link to="/dashboard" className={`nav-link ${location.pathname === '/dashboard' ? 'active' : ''}`}>Dashboard</Link> : ''}
       </div>
       <div className='login-container'>
       {user ? <div  className="login"><button onClick={handleLogout}>Logout</button></div> : <div className="login"><Link to="/login">Log in</Link></div> }

@@ -11,27 +11,28 @@ const Plumber = () => {
 
   const handleProductSelection = () => {
     productDispatch({type: "UPDATE", payload: "Plumber"})
-    localStorage.setItem("product", "Plumber");
+    localStorage.setItem("productId", "bricky_id");
   }
 
   useEffect(() => {
-    const fetchUserDetails = async () => {
-      const response = await fetch(`/api/user/${user.id}`, {
-        headers: {
-          'Authorization': `Bearer ${user.token}`
-        }
-      });
+    // const fetchUserDetails = async () => {
+    //   const response = await fetch(`/api/user/${user.id}`, {
+    //     headers: {
+    //       'Authorization': `Bearer ${user.token}`
+    //     }
+    //   });
 
-      const json = await response.json();
-      console.log(json);
+    //   const json = await response.json();
+    //   console.log(json);
 
-      if (response.ok) {
-        setUserDetails(json);
-      }
-    };
+    //   if (response.ok) {
+    //     setUserDetails(json);
+    //   }
+    // };
 
     if (user) {
-      fetchUserDetails();
+      // fetchUserDetails();
+      setUserDetails(JSON.parse(localStorage.getItem('userDetails')));
     }
   }, [user]);
 

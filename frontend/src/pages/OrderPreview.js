@@ -7,7 +7,7 @@ import { useProductSelectionContext } from '../hooks/useProductSelectionContext'
 
 
 const OrderPreview = () => {
-  const productId = localStorage.getItem("productId") || "empty product ID";
+  const productId = JSON.parse(localStorage.getItem("productId")).productId || "empty product ID";
   const {product} = useProductSelectionContext();
   console.log(product)
   const { user } = useAuthContext();
@@ -15,25 +15,27 @@ const OrderPreview = () => {
 
 
   useEffect(() => {
-    const fetchUserDetails = async () => {
-      const response = await fetch(`/api/user/${user.id}`, {
-        headers: {
-          'Authorization': `Bearer ${user.token}`
-        }
-      });
+    // const fetchUserDetails = async () => {
+    //   const response = await fetch(`/api/user/${user.id}`, {
+    //     headers: {
+    //       'Authorization': `Bearer ${user.token}`
+    //     }
+    //   });
 
-      const json = await response.json();
-      console.log(json);
+    //   const json = await response.json();
+    //   console.log(json);
 
-      if (response.ok) {
-        setUserDetails(json);
-      }
-    };
+    //   if (response.ok) {
+    //     setUserDetails(json);
+    //   }
+    // };
 
-    if (user) {
-      fetchUserDetails();
+    if (user && product) {
+      // fetchUserDetails();
+      setUserDetails(JSON.parse(localStorage.getItem('userDetails')));
+      // localStorage.setItem('tempProduct', product)
     }
-  }, [user]);
+  }, [user, product]);
 
 
   const handleSubmit = async(e) => {

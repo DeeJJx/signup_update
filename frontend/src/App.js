@@ -23,6 +23,8 @@ import Cookies from './pages/Cookies';
 
 //templates
 import Bricky from './components/templates/Bricky';
+import Plumber from './components/templates/Plumber';
+import Landscaper from './components/templates/Landscaper'
 
 //components
 import Navbar from './components/Navbar';
@@ -31,7 +33,7 @@ import Footer from './components/Footer';
 function App() {
 
   const {user} = useAuthContext();
-  console.log(user);
+  // console.log(user);
   
   return (
     <div className="App">
@@ -39,25 +41,33 @@ function App() {
       <Navbar />
         {/* <div className='pages'> */}
               <ProductSelectionContextProvider>
-              <Routes>
-                <Route
-                  path='/order-success'
-                  // element={<OrderSuccess />}
-                  element={user ? <OrderSuccess /> : <Navigate to="/" />}
-                  />
-                 <Route
-                  path='/order-preview'
-                  element={<OrderPreview />}
-                  />
+                <Routes>
                   <Route
-                  path='/dashboard'
-                  element={user ? <Dashboard /> : <Navigate to="/" />}
-                  />
-                 <Route
-                  path='/templates/bricky'
-                  element={<Bricky />}
-                  />
-              </Routes>
+                    path='/order-success'
+                    // element={<OrderSuccess />}
+                    element={user ? <OrderSuccess /> : <Navigate to="/" />}
+                    />
+                  <Route
+                    path='/order-preview'
+                    element={<OrderPreview />}
+                    />
+                    <Route
+                    path='/dashboard'
+                    element={user ? <Dashboard /> : <Navigate to="/" />}
+                    />
+                  <Route
+                    path='/templates/bricky'
+                    element={<Bricky />}
+                    />
+                  <Route
+                    path='/templates/plumber'
+                    element={<Plumber />}
+                    />
+                  <Route
+                    path='/templates/landscaper'
+                    element={<Landscaper />}
+                    />
+                </Routes>
               </ProductSelectionContextProvider>
               <Routes>
               <Route 
