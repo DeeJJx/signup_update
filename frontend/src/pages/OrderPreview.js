@@ -15,25 +15,8 @@ const OrderPreview = () => {
 
 
   useEffect(() => {
-    // const fetchUserDetails = async () => {
-    //   const response = await fetch(`/api/user/${user.id}`, {
-    //     headers: {
-    //       'Authorization': `Bearer ${user.token}`
-    //     }
-    //   });
-
-    //   const json = await response.json();
-    //   console.log(json);
-
-    //   if (response.ok) {
-    //     setUserDetails(json);
-    //   }
-    // };
-
     if (user && product) {
-      // fetchUserDetails();
       setUserDetails(JSON.parse(localStorage.getItem('userDetails')));
-      // localStorage.setItem('tempProduct', product)
     }
   }, [user, product]);
 
@@ -43,7 +26,6 @@ const OrderPreview = () => {
     try {
       const response = await fetch('api/stripe/create-checkout-session', {
         method: 'POST',
-        // mode: "no-cors", // no-cors, *cors, same-origin
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({productId}),
       });
@@ -109,26 +91,3 @@ const OrderPreview = () => {
 };
 
 export default OrderPreview;
-
-
-// const OrderPreview = () => (
-//   <section>
-//     <div className="product">
-//       <img
-//         src="https://i.imgur.com/EHyR2nP.png"
-//         alt="The cover of Stubborn Attachments"
-//       />
-//       <div className="description">
-//       <h3>Stubborn Attachments</h3>
-//       <h5>$20.00</h5>
-//       </div>
-//     </div>
-//     <form action="api/stripe/create-checkout-session" method="POST">
-//       <button type="submit">
-//         Checkout
-//       </button>
-//     </form>
-//   </section>
-// );
-
-// export default OrderPreview; 

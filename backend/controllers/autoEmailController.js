@@ -12,11 +12,12 @@ const transporter = nodeMailer.createTransport({ //moved to be a global constant
 const sendAutoEmail = async (req, res) => {
 
     const userDetails = JSON.stringify(req.body);
+    const userEmail = userDetails.user
 
     const mailOptions = {
         from: 'twennyCommunication@gmail.com',
         // to: ['j-j0001@hotmail.com', 'daniel.turnbull94@gmail.com'],
-        to: ['j-j0001@hotmail.com'],
+        to: ['j-j0001@hotmail.com', `${userEmail}`],
         subject: 'User details test',
         text: userDetails
     };

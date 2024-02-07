@@ -6,16 +6,21 @@ const fs = require("fs");
 const createNextApp = (appName, uniqueId) => {  
 
   const product = appName.split("-")[0];
+
+  
   console.log(uniqueId)
 
   try {
+    // Step 0: Store the current working directory
+    const originalCwd = process.cwd();
+
     // Step 1: Create the app using create-next-app
     console.log('Creating a new next app...');
     const appPath = path.join(process.cwd(), appName);
     // names ie "landscape" must match "product" to work - currently only got "landscape" starter and NO "landscape" product lmao
-    // execSync(`npx create-next-app --example https://github.com/DeeJJx/${product}-starter ${appName} --unique-id=${uniqueId}`, { stdio: 'inherit', cwd: process.cwd() });
+    execSync(`npx create-next-app --example https://github.com/DeeJJx/${product}-starter ${appName} --unique-id=${uniqueId}`, { stdio: 'inherit', cwd: process.cwd() });
     // execSync(`npx create-next-app --example https://github.com/DeeJJx/landscape-starter ${appName} --unique-id=${uniqueId}`, { stdio: 'inherit', cwd: process.cwd() });
-    execSync(`npx create-next-app --example https://github.com/DeeJJx/landscape-starter ${appName}`, { stdio: 'inherit', cwd: process.cwd() });
+    // execSync(`npx create-next-app --example https://github.com/DeeJJx/landscape-starter ${appName}`, { stdio: 'inherit', cwd: process.cwd() });
 
     // Step 2: Move the generated app folder to the correct path
     const appFolderName = `${appName}-parent-folder`;
@@ -44,6 +49,9 @@ const createNextApp = (appName, uniqueId) => {
     const grandparentPath = path.resolve(__dirname, '../../../');
     const newAppPath = path.join(grandparentPath, appFolderName);
     fs.renameSync(newPath, newAppPath);
+
+    // Step X: Return to the original working directory
+    process.chdir(originalCwd);
 
     console.log('Next app setup completed.');
     console.log(`To start the app, change directory to new site directory and then run in terminal "npm run dev".`);

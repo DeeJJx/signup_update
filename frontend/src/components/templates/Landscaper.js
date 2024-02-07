@@ -5,13 +5,17 @@ import { Link } from "react-router-dom";
 
 const Landscaper = () => {
   const { user } = useAuthContext();
-  const { productState, productDispatch } = useProductSelectionContext();
+  const { productDispatch } = useProductSelectionContext();
 
   const [userDetails, setUserDetails] = useState({});
 
   const handleProductSelection = () => {
-    productDispatch({type: "UPDATE", payload: "Plumber"})
-    localStorage.setItem("productId", "bricky_id");
+    productDispatch({type: "UPDATE", payload: "landscape"})
+    const productSelection = {
+      productId: "bricky_id",
+      siteType: "landscape"
+    }
+    localStorage.setItem("productId", JSON.stringify(productSelection));
   }
 
   useEffect(() => {

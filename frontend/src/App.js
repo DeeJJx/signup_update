@@ -24,7 +24,8 @@ import Cookies from './pages/Cookies';
 //templates
 import Bricky from './components/templates/Bricky';
 import Plumber from './components/templates/Plumber';
-import Landscaper from './components/templates/Landscaper'
+import Landscaper from './components/templates/Landscaper';
+import Electrician from './components/templates/Electrician';
 
 //components
 import Navbar from './components/Navbar';
@@ -66,6 +67,10 @@ function App() {
                   <Route
                     path='/templates/landscaper'
                     element={<Landscaper />}
+                    />
+                    <Route
+                    path='/templates/electrician'
+                    element={<Electrician />}
                     />
                 </Routes>
               </ProductSelectionContextProvider>

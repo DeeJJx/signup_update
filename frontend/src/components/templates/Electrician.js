@@ -3,17 +3,17 @@ import { useProductSelectionContext } from '../../hooks/useProductSelectionConte
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Bricky = () => {
+const Electrician = () => {
   const { user } = useAuthContext();
   const { productDispatch } = useProductSelectionContext();
 
   const [userDetails, setUserDetails] = useState({});
 
   const handleProductSelection = () => {
-    productDispatch({type: "UPDATE", payload: "Brick-Layer"})
+    productDispatch({type: "UPDATE", payload: "electrician"})
     const productSelection = {
       productId: "bricky_id",
-      siteType: "Brick-Layer"
+      siteType: "electrician"
     }
     localStorage.setItem("productId", JSON.stringify(productSelection));
   }
@@ -78,4 +78,4 @@ const Bricky = () => {
   );
 };
 
-export default Bricky;
+export default Electrician;

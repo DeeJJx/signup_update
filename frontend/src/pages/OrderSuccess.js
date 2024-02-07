@@ -7,7 +7,6 @@ import { useUpdate } from '../hooks/useUpdate';
 const OrderSuccess = () => {
   const {user} = useAuthContext();
   const {product, productDispatch} = useProductSelectionContext();
-//   console.log(product)
   const {update} = useUpdate();
 
   
