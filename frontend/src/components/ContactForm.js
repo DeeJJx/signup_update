@@ -9,14 +9,18 @@ const ContactForm = () => {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isEmailSent, setIsEmailSent] = useState(false);
-  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isEmailValid, setIsEmailValid] = useState(true); //Checks for valid email address
+  const [isEmailTouched, setIsEmailTouched] = useState(false); //Checks to see if email input has been interacted with, invalid email message won't display unless email inputted
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     if (name === 'email') {
+      setIsEmailTouched(true);
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       setIsEmailValid(emailRegex.test(value));
     }
+
     setFormData({
       ...formData,
       [name]: value
@@ -83,7 +87,7 @@ const ContactForm = () => {
           required
           pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
         />
-        {!isEmailValid && (
+        {!isEmailValid && isEmailTouched && (
           <p className="validation-error">Please enter a valid email address</p>
         )}
       </div>

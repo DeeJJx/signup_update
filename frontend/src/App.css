@@ -1130,7 +1130,11 @@ form.login h3 {
   background-color: #e67200;
 }
 
-
+.contact-form .validation-error {
+  margin-top: 0;
+  font-size: 0.9rem;
+  color: rgba(238, 61, 61, 0.925);
+}
 
 /*Contact Form styling*/
 
