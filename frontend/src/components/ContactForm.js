@@ -16,7 +16,6 @@ const ContactForm = () => {
     const { name, value } = e.target;
 
     if (name === 'email') {
-      setIsEmailTouched(true);
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       setIsEmailValid(emailRegex.test(value));
     }
@@ -84,6 +83,7 @@ const ContactForm = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
+          onBlur={() => setIsEmailTouched(true)}
           required
           pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
         />
