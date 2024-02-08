@@ -9,9 +9,14 @@ const ContactForm = () => {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isEmailSent, setIsEmailSent] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(true);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      setIsEmailValid(emailRegex.test(value));
+    }
     setFormData({
       ...formData,
       [name]: value
@@ -43,13 +48,15 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await sendEmail();
-    setIsSubmitted(true);
-    setFormData({
-      name: '',
-      email: '',
-      message: ''
-    });
+    if (isEmailValid) {
+      await sendEmail();
+      setIsSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+    }  
   };
 
   return (
@@ -74,7 +81,11 @@ const ContactForm = () => {
           value={formData.email}
           onChange={handleChange}
           required
+          pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
         />
+        {!isEmailValid && (
+          <p className="validation-error">Please enter a valid email address</p>
+        )}
       </div>
       <div>
         <label htmlFor="message">Message:</label>
