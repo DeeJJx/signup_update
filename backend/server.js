@@ -14,7 +14,14 @@ const app = express();
 const PORT = process.env.PORT || 5000; // Use your preferred port number or fallback to 5000
 
 // Middleware
-app.use(express.json());
+app.use((req, res, next) => {
+  if (req.originalUrl === '/api/stripe/basic-webhook') {
+    next(); // Do nothing with the body because I need it in a raw state.
+  } else {
+    express.json()(req, res, next);  // ONLY do express.json() if the received request is NOT a WebHook from Stripe.
+  }
+})
+// app.use(express.json());
 app.use(cors());
 
 // Serve your static files or handle other routes here

@@ -45,6 +45,10 @@ const mainUserSchema = new Schema({
     siteType: {
         type: String,
         required: false
+    },
+    subscriptionId: {
+        type: String,
+        required: false
     }
     //if adding postcode here - must add in userController
 })

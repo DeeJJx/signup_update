@@ -20,7 +20,6 @@ const createNextApp = (appName, uniqueId) => {
     // names ie "landscape" must match "product" to work - currently only got "landscape" starter and NO "landscape" product lmao
     execSync(`npx create-next-app --example https://github.com/DeeJJx/${product}-starter ${appName} --unique-id=${uniqueId}`, { stdio: 'inherit', cwd: process.cwd() });
     // execSync(`npx create-next-app --example https://github.com/DeeJJx/landscape-starter ${appName} --unique-id=${uniqueId}`, { stdio: 'inherit', cwd: process.cwd() });
-    // execSync(`npx create-next-app --example https://github.com/DeeJJx/landscape-starter ${appName}`, { stdio: 'inherit', cwd: process.cwd() });
 
     // Step 2: Move the generated app folder to the correct path
     const appFolderName = `${appName}-parent-folder`;

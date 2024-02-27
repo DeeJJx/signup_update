@@ -1,4 +1,6 @@
 const stripe = require('stripe')(process.env.STRIPEKEY);
+const endpointSecret = process.env.endpointSecret;
+const { updateUser } = require('../controllers/userController');
 
 const createCheckoutSession = async(req, res) => {
 
@@ -9,8 +11,8 @@ const createCheckoutSession = async(req, res) => {
   
       // Define a mapping of product IDs to prices
       const priceMap = {
-          bricky_id: 'price_1NA7O1JVu65LdnVcBljr473q',
-          sub_id: 'price_1NA64tJVu65LdnVcfgUwbhUA',
+          bricky_id: 'price_1OiyBiJVu65LdnVcb2nlNBlF',
+          sub_id: 'price_1Oiy99JVu65LdnVcrO25wNfa',
           // Add more product IDs and their corresponding prices here
         };
       
@@ -27,11 +29,11 @@ const createCheckoutSession = async(req, res) => {
         const session = await stripe.checkout.sessions.create({
             line_items: [
                 {
-                    price: 'price_1NA7O1JVu65LdnVcBljr473q',
+                    price: 'price_1OiyBiJVu65LdnVcb2nlNBlF',
                     quantity: 1,
                 },
                 {
-                    price: 'price_1NA64tJVu65LdnVcfgUwbhUA',
+                    price: 'price_1Oiy99JVu65LdnVcrO25wNfa',
                     quantity: 1
                 }
             ],
@@ -40,60 +42,78 @@ const createCheckoutSession = async(req, res) => {
             cancel_url: `http://localhost:3000/order-success?cancelled=true`,
         });
         
-        res.json({url: session.url});
+        res.json({
+            url: session.url,
+            sessionData: session
+        });
 }
     
 
-    // This is your Stripe CLI webhook secret for testing your endpoint locally.
+// This is your Stripe CLI webhook secret for testing your endpoint locally.
 
 const fulfillOrderFromCheckout = (req, res) => {
     const payload = req.body;
-    console.log("Got payload: " + payload)
+    console.log("Got payload: " + payload["gotApp"]);
 
     res.status(200).end();
 }
 
 
+const basicWebhook = (req, res) => {  
+        let event = req.body;
+      
+        if (endpointSecret) {
+            // Get the signature sent by Stripe
+            const signature = req.headers['stripe-signature'];
+            try {
+              event = stripe.webhooks.constructEvent(
+                req.body,
+                signature,
+                endpointSecret
+              );
+            } catch (err) {
+              console.log(`⚠️  Webhook signature verification failed.`, err.message);
+              return res.sendStatus(400);
+            }
+        }
 
-module.exports = {
-    createCheckoutSession,
-    fulfillOrderFromCheckout
+         // Handle the event
+        switch (event.type) {
+            case 'payment_intent.succeeded':
+            const paymentIntent = event.data.object;
+            console.log(`PaymentIntent for ${paymentIntent.amount} was successful!`);
+            // Then define and call a method to handle the successful payment intent.
+            // handlePaymentIntentSucceeded(paymentIntent);
+            break;
+            case 'payment_method.attached':
+            const paymentMethod = event.data.object;
+            // Then define and call a method to handle the successful attachment of a PaymentMethod.
+            // handlePaymentMethodAttached(paymentMethod);
+            break;
+            case 'customer.subscription.created':
+                const subscriptionId = event.data.object;
+                const req = {
+                    params: {
+                        id: '65b50cd855db2f169f76cd9c',
+                    },
+                    subscriptionId: subscriptionId.id,
+                };
+                // console.log(subscriptionId);
+                //update DB with users subscription ID (used to cancel)
+                updateUser(req);
+            break;
+            default:
+            // Unexpected event type
+            console.log(`Unhandled event type ${event.type}.`);
+        }
+
+        // Return a 200 res to acknowledge receipt of the event
+        res.send();
 }
 
 
-
-
-// app.post('/webhook', bodyParser.raw({type: 'application/json'}), (request, response) => {
-//   const payload = request.body;
-
-//   console.log("Got payload: " + payload);
-
-//   response.status(200).end();
-// });
-
-// app.post('/webhook', express.raw({type: 'application/json'}), (request, response) => {
-//     const sig = request.headers['stripe-signature'];
-  
-//     let event;
-  
-//     try {
-//       event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
-//     } catch (err) {
-//       response.status(400).send(`Webhook Error: ${err.message}`);
-//       return;
-//     }
-  
-//     // Handle the event
-//     switch (event.type) {
-//       case 'payment_intent.succeeded':
-//         const paymentIntentSucceeded = event.data.object;
-//         // Then define and call a function to handle the event payment_intent.succeeded
-//         break;
-//       // ... handle other event types
-//       default:
-//         console.log(`Unhandled event type ${event.type}`);
-//     }
-  
-//     // Return a 200 response to acknowledge receipt of the event
-//     response.send();
-//   });
+module.exports = {
+    createCheckoutSession,
+    fulfillOrderFromCheckout,
+    basicWebhook,
+};

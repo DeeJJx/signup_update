@@ -32,7 +32,10 @@ const OrderPreview = () => {
   
       if (response.ok) {
         console.log('Request sent successfully');
-        const { url } = await response.json();
+        const json = await response.json();
+        const url = json.url;
+        // console.log(json)
+        // console.log(url);
 
           // Redirect the user to the Stripe Checkout page
           console.log('about to send to url')
