@@ -64,7 +64,7 @@ const getUser = async(req, res) => {
     });
 }
 
-//update user
+//update user - FRONTEND
 const updateUser = async(req, res) => {
     const { id } = req.params;
 
@@ -88,14 +88,32 @@ const updateUser = async(req, res) => {
         twitter: user.twitter,
         instagram: user.instagram,
         siteType: user.siteType,
-        subscriptionId: user.subscriptionId,
     });
 }
+
+//update user - BACKEND / Stripe details
+const updateBackendUser = async (req) => {
+    const { id } = req;
+    console.log(req, 'UPDATEBACKENDUSER')
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        throw { status: 404, error: "No such user" };
+    }
+
+    const user = await mainUser.findOneAndUpdate({ _id: id }, { ...req }, { new: true });
+
+    if (!user) {
+        throw { status: 404, error: 'No such user' };
+    }
+
+    return user;
+};
 
 
 module.exports = {
     loginUser,
     signupUser,
     getUser,
-    updateUser
+    updateUser,
+    updateBackendUser
 }

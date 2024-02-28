@@ -1,11 +1,11 @@
 const stripe = require('stripe')(process.env.STRIPEKEY);
 const endpointSecret = process.env.endpointSecret;
-const { updateUser } = require('../controllers/userController');
+const { updateBackendUser } = require('../controllers/userController');
 
 const createCheckoutSession = async(req, res) => {
 
       // Get the selected product ID from the frontend
-      const { productId } = req.body;
+      const { productId, userId } = req.body;
 
       console.log(productId)
   
@@ -40,6 +40,7 @@ const createCheckoutSession = async(req, res) => {
             mode: 'subscription',
             success_url: `http://localhost:3000/order-success?success=true`,
             cancel_url: `http://localhost:3000/order-success?cancelled=true`,
+            client_reference_id: userId,
         });
         
         res.json({
@@ -79,28 +80,33 @@ const basicWebhook = (req, res) => {
 
          // Handle the event
         switch (event.type) {
+            case 'checkout.session.completed':
+                const checkoutSession = event.data.object;
+                const customerIdAndPaymentObj = {
+                        subscriptionId: checkoutSession.subscription,
+                        id: checkoutSession.client_reference_id
+                } 
+                try {
+                updateBackendUser(customerIdAndPaymentObj)
+                } catch(err) {
+                    console.log(err)
+                }
+                console.log(customerIdAndPaymentObj);
+            break;
             case 'payment_intent.succeeded':
-            const paymentIntent = event.data.object;
-            console.log(`PaymentIntent for ${paymentIntent.amount} was successful!`);
-            // Then define and call a method to handle the successful payment intent.
-            // handlePaymentIntentSucceeded(paymentIntent);
+                const paymentIntent = event.data.object;
+                console.log(`PaymentIntent for ${paymentIntent.amount} was successful!`);
+                // Then define and call a method to handle the successful payment intent.
+                // handlePaymentIntentSucceeded(paymentIntent);
             break;
             case 'payment_method.attached':
-            const paymentMethod = event.data.object;
-            // Then define and call a method to handle the successful attachment of a PaymentMethod.
-            // handlePaymentMethodAttached(paymentMethod);
+                const paymentMethod = event.data.object;
+                // Then define and call a method to handle the successful attachment of a PaymentMethod.
+                // handlePaymentMethodAttached(paymentMethod);
             break;
-            case 'customer.subscription.created':
-                const subscriptionId = event.data.object;
-                const req = {
-                    params: {
-                        id: '65b50cd855db2f169f76cd9c',
-                    },
-                    subscriptionId: subscriptionId.id,
-                };
-                // console.log(subscriptionId);
-                //update DB with users subscription ID (used to cancel)
-                updateUser(req);
+            case 'customer.subscription.deleted':
+                console.log('customer subscription deleted (cancelled/ended)');
+                //CALL DELETE / HIDE SITE FUNCTION
             break;
             default:
             // Unexpected event type

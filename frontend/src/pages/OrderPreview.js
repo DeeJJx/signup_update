@@ -23,22 +23,25 @@ const OrderPreview = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    const stripeObj = {
+      productId: productId,
+      userId: user.id
+    }
     try {
       const response = await fetch('api/stripe/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({productId}),
+        body: JSON.stringify(stripeObj),
       });
   
       if (response.ok) {
         console.log('Request sent successfully');
         const json = await response.json();
         const url = json.url;
-        // console.log(json)
-        // console.log(url);
-
+        
           // Redirect the user to the Stripe Checkout page
           console.log('about to send to url')
+          // window.location.href = urlWithParam;
           window.location.href = url;
 
       } else {

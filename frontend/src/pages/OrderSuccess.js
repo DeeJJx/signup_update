@@ -56,7 +56,7 @@ const OrderSuccess = () => {
             //SET user detail array to send confirmation
             const userDetailsArray = Object.values(JSON.parse(localStorage.getItem('userDetails')));
             setUserDetails(userDetailsArray);
-            // return;
+            return;
             //update DB with product siteType
             update({siteType: product})
             createNextApp(product.toLowerCase(), user.id);
