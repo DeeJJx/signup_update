@@ -49,12 +49,34 @@ const mainUserSchema = new Schema({
     subscriptionId: {
         type: String,
         required: false
+    },
+    intro: {
+        type: String,
+        required: false
+    },
+    skillsList: {
+        type: Array,
+        required: false
+    },
+    skillsDescription: {
+        type: String,
+        required: false
     }
     //if adding postcode here - must add in userController
 })
 
 //static signup method
-mainUserSchema.statics.signup = async function(email, password, name, addressOne, addressTwo, telephone, facebook, twitter, instagram) {
+mainUserSchema.statics.signup = async function(
+    email, 
+    password, 
+    name, 
+    addressOne, 
+    addressTwo, 
+    telephone, 
+    facebook, 
+    twitter, 
+    instagram,
+    ) {
 
     //validation
     if(!email || !password){

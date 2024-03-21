@@ -61,6 +61,9 @@ const getUser = async(req, res) => {
         instagram: user.instagram,
         siteType: user.siteType,
         subscriptionId: user.subscriptionId,
+        intro: user.intro,
+        skillsList: user.skillsList,
+        skillsDescription: user.skillsDescription,
     });
 }
 
@@ -88,6 +91,9 @@ const updateUser = async(req, res) => {
         twitter: user.twitter,
         instagram: user.instagram,
         siteType: user.siteType,
+        intro: user.intro,
+        skillsList: user.skillsList,
+        skillsDescription: user.skillsDescription,
     });
 }
 

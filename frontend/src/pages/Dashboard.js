@@ -1,199 +1,242 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
+import SkillMenu from "../components/SkillMenu";
+import { updateUserDetails, updateUserSkills } from "../api/api";
 // import { useProductSelectionContext } from "../hooks/useProductSelectionContext";
 
 //context & useUpdate not required? kept changing user context and logging user out essentially
 // import { useUpdate } from "../hooks/useUpdate";
 
-
 const Dashboard = () => {
-    const [userDetails, setUserDetails] = useState([]);
-    const {user} = useAuthContext();
-    
-    // const {product} = useProductSelectionContext();
+  const [userDetails, setUserDetails] = useState([]);
+  const { user } = useAuthContext();
 
+  // const {product} = useProductSelectionContext();
 
+  //FORM STUFF
+  const [name, setName] = useState("");
+  const [addressOne, setAddressOne] = useState("");
+  const [addressTwo, setAddressTwo] = useState("");
+  const [telephone, setTelephone] = useState("");
+  const [facebook, setFacebook] = useState("");
+  const [twitter, setTwitter] = useState("");
+  const [instagram, setInstagram] = useState("");
+  const [isLoading, setIsLoading] = useState("");
 
-    //FORM STUFF
-    const [name, setName] = useState("");
-    const [addressOne, setAddressOne] = useState("");
-    const [addressTwo, setAddressTwo] = useState("");
-    const [telephone, setTelephone] = useState("");
-    const [facebook, setFacebook] = useState("");
-    const [twitter, setTwitter] = useState("");
-    const [instagram, setInstagram] = useState("");
-    const [isLoading, setIsLoading] = useState("");
-  
-    // const {update, error, isLoading} = useUpdate();
+  // const {update, error, isLoading} = useUpdate();
 
-    const resetForm = () => {
-        setName("");
-        setAddressOne("");
-        setAddressTwo("");
-        setTelephone("");
-        setFacebook("");
-        setTwitter("");
-        setInstagram("");
-      };
+  const resetForm = () => {
+    setName("");
+    setAddressOne("");
+    setAddressTwo("");
+    setTelephone("");
+    setFacebook("");
+    setTwitter("");
+    setInstagram("");
+  };
 
-    const update = async (name, addressOne, addressTwo, telephone, facebook, twitter, instagram) => {
-        setIsLoading(true);
-        // setError(null);
+  const update = async (
+    name,
+    addressOne,
+    addressTwo,
+    telephone,
+    facebook,
+    twitter,
+    instagram
+  ) => {
+    setIsLoading(true);
+    // setError(null);
 
+    const response = await fetch(`/api/user/${user.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        addressOne,
+        addressTwo,
+        telephone,
+        facebook,
+        twitter,
+        instagram,
+      }),
+    });
+    const json = await response.json();
+
+    if (!response.ok) {
+      setIsLoading(false);
+      // setError(json.error);
+    }
+
+    if (response.ok) {
+      //keep form state equal to details state
+      setName(json.name);
+      setAddressOne(json.addressOne);
+      setAddressTwo(json.addressTwo);
+      setTelephone(json.telephone);
+      setFacebook(json.facebook);
+      setTwitter(json.twitter);
+      setInstagram(json.instagram);
+
+      //set details state
+      const userDetailsArray = Object.values(json);
+      setUserDetails(userDetailsArray);
+
+      setIsLoading(false);
+      resetForm();
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await update(
+      name,
+      addressOne,
+      addressTwo,
+      telephone,
+      facebook,
+      twitter,
+      instagram
+    );
+  };
+
+  const handleSkillSubmit = async (formData) => {
+    console.log("form data", formData);
+    //create new update function which only passes formData
+  };
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      if (user) {
         const response = await fetch(`/api/user/${user.id}`, {
-            method: 'PATCH',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({name, addressOne, addressTwo, telephone, facebook, twitter, instagram})
-        })
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        });
+
         const json = await response.json();
 
-        if(!response.ok){
-            setIsLoading(false);
-            // setError(json.error);
+        if (response.ok) {
+          const userDetailsArray = Object.values(json); // Convert JSON object to an array
+          setUserDetails(userDetailsArray);
+          localStorage.setItem("userDetails", JSON.stringify(json));
         }
-
-        if(response.ok){
-            //keep form state equal to details state
-            setName(json.name);
-            setAddressOne(json.addressOne);
-            setAddressTwo(json.addressTwo);
-            setTelephone(json.telephone);
-            setFacebook(json.facebook);
-            setTwitter(json.twitter);
-            setInstagram(json.instagram);
-
-            //set details state
-            const userDetailsArray = Object.values(json);
-            setUserDetails(userDetailsArray);
-
-            setIsLoading(false);
-            resetForm();
-        }
-    }
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      await update(name, addressOne, addressTwo, telephone, facebook, twitter, instagram);
+      }
     };
 
-    useEffect(() => {
-        const fetchUserDetails = async() => {
-            if(user) {
-            const response = await fetch(`/api/user/${user.id}`, {
-                headers: {
-                    'Authorization': `Bearer ${user.token}`
-                }
-            })
-
-            const json = await response.json();
-
-            if(response.ok){
-                const userDetailsArray = Object.values(json); // Convert JSON object to an array
-                setUserDetails(userDetailsArray);
-                localStorage.setItem('userDetails', JSON.stringify(json))    
-            }
-        }
+    if (user) {
+      fetchUserDetails();
     }
+  }, [user]);
 
-        if(user){
-            fetchUserDetails();
-        }       
-    }, [user])
-
-    return (
-        <div className="dashboard-page">
-            <div className="user-details-container"> 
-                <h3>Dashboard - Template {userDetails[userDetails.length -1]}</h3>
-                <ul className="user-details-list">
-                {userDetails.length > 0 &&
-                    userDetails.slice(0, -1).map((detail, index) => (
-                        <li key={index}>{detail}</li>
-                    ))
-                }
-                </ul>
-            </div>
-            <div className="form-container">
-                <form className="signup" onSubmit={handleSubmit}>
-                    <h3>Update</h3>
-
-                    <div className="form-group">
-                        <label>Name:</label>
-                        <input
-                        className="form-input"
-                        type="text"
-                        onChange={(e) => setName(e.target.value)}
-                        value={name}
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label>Address Line One:</label>
-                        <input
-                        className="form-input"
-                        type="text"
-                        onChange={(e) => setAddressOne(e.target.value)}
-                        value={addressOne}
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label>Address Line Two:</label>
-                        <input
-                        className="form-input"
-                        type="text"
-                        onChange={(e) => setAddressTwo(e.target.value)}
-                        value={addressTwo}
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label>Telephone:</label>
-                        <input
-                        className="form-input"
-                        type="text"
-                        onChange={(e) => setTelephone(e.target.value)}
-                        value={telephone}
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label>Facebook URL:</label>
-                        <input
-                        className="form-input"
-                        type="text"
-                        onChange={(e) => setFacebook(e.target.value)}
-                        value={facebook}
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label>Twitter URL:</label>
-                        <input
-                        className="form-input"
-                        type="text"
-                        onChange={(e) => setTwitter(e.target.value)}
-                        value={twitter}
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label>Instagram URL:</label>
-                        <input
-                        className="form-input"
-                        type="text"
-                        onChange={(e) => setInstagram(e.target.value)}
-                        value={instagram}
-                        />
-                    </div>
-
-                    <button className="submit-button" disabled={isLoading} type="submit">
-                        Update details
-                    </button>
-                    {/* {error && <div>{error}</div>} */}
-                    </form>
-            </div>
+  return (
+    <div className="dashboard-page">
+      <section className="user-details">
+        <div className="user-details-container">
+          <h3>Dashboard - Template {userDetails[userDetails.length - 2]}</h3>
+          <ul className="user-details-list">
+            {userDetails.length > 0 &&
+              userDetails
+                .slice(0, -1)
+                .map((detail, index) => <li key={index}>{detail}</li>)}
+            <a
+              href="https://billing.stripe.com/p/login/test_14k5lH1ot4kxaT68ww"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Stripe Portal
+            </a>
+          </ul>
         </div>
-    )
-}
+        <div className="form-container">
+          <form className="signup" onSubmit={handleSubmit}>
+            <h3>Update</h3>
+
+            <div className="form-group">
+              <label>Name:</label>
+              <input
+                className="form-input"
+                type="text"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Address Line One:</label>
+              <input
+                className="form-input"
+                type="text"
+                onChange={(e) => setAddressOne(e.target.value)}
+                value={addressOne}
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Address Line Two:</label>
+              <input
+                className="form-input"
+                type="text"
+                onChange={(e) => setAddressTwo(e.target.value)}
+                value={addressTwo}
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Telephone:</label>
+              <input
+                className="form-input"
+                type="text"
+                onChange={(e) => setTelephone(e.target.value)}
+                value={telephone}
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Facebook URL:</label>
+              <input
+                className="form-input"
+                type="text"
+                onChange={(e) => setFacebook(e.target.value)}
+                value={facebook}
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Twitter URL:</label>
+              <input
+                className="form-input"
+                type="text"
+                onChange={(e) => setTwitter(e.target.value)}
+                value={twitter}
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Instagram URL:</label>
+              <input
+                className="form-input"
+                type="text"
+                onChange={(e) => setInstagram(e.target.value)}
+                value={instagram}
+              />
+            </div>
+
+            <button
+              className="submit-button"
+              disabled={isLoading}
+              type="submit"
+            >
+              Update details
+            </button>
+            {/* {error && <div>{error}</div>} */}
+          </form>
+        </div>
+      </section>
+        <SkillMenu
+          onSkillSubmit={handleSkillSubmit}
+        />
+    </div>
+  );
+};
 
 export default Dashboard;

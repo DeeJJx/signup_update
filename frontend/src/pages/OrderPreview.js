@@ -61,39 +61,46 @@ const OrderPreview = () => {
           className='order-preview-image'
         />
         <div className="description">
-        <h3>{product} Site Template</h3>
-        <h5>£19.98</h5>
-        <div className='price-breakdown'>
+          <h3>{product} Site Template</h3>
+          <h5>£19.98</h5>
+          <div className='price-breakdown'>
             <p>Domain: 15.99 ||</p>
             <p>Monthly: 3.99</p>
-        </div>
-        <h3>Find your perfect site name using our tool below</h3>
-        <DomainSearchBar />
+          </div>
+          {userDetails["subscriptionId"] ? (
+            <p>You already have a subscription. No additional purchase allowed.</p>
+          ) : (
+            <>
+              <h3>Find your perfect site name using our tool below</h3>
+              <DomainSearchBar />
+            </>
+          )}
         </div>
       </div>
       {user && (
         <div>
-          <h2>See below details that will be displayed on site!</h2>
+          <h2>See below details that will be displayed on the site!</h2>
           <p>Name: {userDetails.name}</p>
           <p>Address Line One: {userDetails.addressOne}</p>
           <p>Address Line Two: {userDetails.addressTwo}</p>
           <p>Telephone: {userDetails.telephone}</p>
         </div>
       )}
-      {user ? (
-          <form onSubmit={handleSubmit}>
+      {user && !userDetails["subscriptionId"] && (
+        <form onSubmit={handleSubmit}>
           <button type="submit">
             Checkout
           </button>
         </form>
-      ) : (
+      )}
+      {!user && (
         <div>
-          To make this purchase please sign up for an account.
+          To make this purchase, please sign up for an account.
         </div>
       )}
-
     </section>
-  )  
+  );
+  
 };
 
 export default OrderPreview;
