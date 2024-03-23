@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import SkillMenu from "../components/SkillMenu";
-import { updateUserDetails, updateUserSkills } from "../api/api";
 // import { useProductSelectionContext } from "../hooks/useProductSelectionContext";
 
 //context & useUpdate not required? kept changing user context and logging user out essentially
 // import { useUpdate } from "../hooks/useUpdate";
 
 const Dashboard = () => {
-  const [userDetails, setUserDetails] = useState([]);
+  const [userDetails, setUserDetails] = useState({});
+  const [userSkills, setUserSkills] = useState({});
   const { user } = useAuthContext();
 
   // const {product} = useProductSelectionContext();
@@ -35,7 +35,7 @@ const Dashboard = () => {
     setInstagram("");
   };
 
-  const update = async (
+  const updateUserDetails = async (
     name,
     addressOne,
     addressTwo,
@@ -78,17 +78,68 @@ const Dashboard = () => {
       setInstagram(json.instagram);
 
       //set details state
-      const userDetailsArray = Object.values(json);
-      setUserDetails(userDetailsArray);
+      const userDetailsObj = {
+        user: json["user"],
+        name: json["name"],
+        addressOne: json["addressOne"],
+        addressTwo: json["addressTwo"],
+        facebook: json["facebook"],
+        twitter: json["twitter"],
+        instagram: json["instagram"],
+        siteType: json["siteType"],
+        subscriptionId: json["subscriptionId"]
+      }
+      setUserDetails(userDetailsObj);
 
       setIsLoading(false);
       resetForm();
     }
   };
 
-  const handleSubmit = async (e) => {
+  const updateUserSkills = async (
+    intro,
+    skillsList,
+    skillsDescription
+  ) => {
+    setIsLoading(true);
+    // setError(null);
+
+    const response = await fetch(`/api/user/${user.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        intro,
+        skillsList,
+        skillsDescription
+      }),
+    });
+    const json = await response.json();
+
+    if (!response.ok) {
+      setIsLoading(false);
+      // setError(json.error);
+    }
+
+    if (response.ok) {
+      //keep form state equal to skills state
+      console.log(json)
+
+      //set skills state
+      const userSkillsObj = {
+        intro: json["intro"],
+        skillsList: json["skillsList"],
+        skillsDescription: json["skillsDescription"]
+      }
+      setUserSkills(userSkillsObj);
+
+      setIsLoading(false);
+      //not reset form but update form fields to reflect options - prefill
+    }
+  };
+
+  const handleDetailsSubmit = async (e) => {
     e.preventDefault();
-    await update(
+    await updateUserDetails(
       name,
       addressOne,
       addressTwo,
@@ -102,6 +153,11 @@ const Dashboard = () => {
   const handleSkillSubmit = async (formData) => {
     console.log("form data", formData);
     //create new update function which only passes formData
+    const intro = formData["introText"];
+    const skillsList = formData["selectedSkills"];
+    const skillsDescription = formData["skillText"];
+    // formData.preventDefault();
+    await updateUserSkills(intro, skillsList, skillsDescription);
   };
 
   useEffect(() => {
@@ -116,9 +172,28 @@ const Dashboard = () => {
         const json = await response.json();
 
         if (response.ok) {
-          const userDetailsArray = Object.values(json); // Convert JSON object to an array
-          setUserDetails(userDetailsArray);
+          const userDetailsObj = {
+            user: json["user"],
+            name: json["name"],
+            addressOne: json["addressOne"],
+            addressTwo: json["addressTwo"],
+            facebook: json["facebook"],
+            twitter: json["twitter"],
+            instagram: json["instagram"],
+            siteType: json["siteType"],
+            subscriptionId: json["subscriptionId"]
+          }
+
+          setUserDetails(userDetailsObj);
           localStorage.setItem("userDetails", JSON.stringify(json));
+
+          const userSkillsObj = {
+            intro: json["intro"],
+            skillsList: json["skillsList"],
+            skillsDescription: json["skillsDescription"]
+          }
+          setUserSkills(userSkillsObj);
+
         }
       }
     };
@@ -132,12 +207,17 @@ const Dashboard = () => {
     <div className="dashboard-page">
       <section className="user-details">
         <div className="user-details-container">
-          <h3>Dashboard - Template {userDetails[userDetails.length - 2]}</h3>
+          <h3>Dashboard - Template {userDetails["siteType"]}</h3>
           <ul className="user-details-list">
-            {userDetails.length > 0 &&
-              userDetails
-                .slice(0, -1)
-                .map((detail, index) => <li key={index}>{detail}</li>)}
+          {Object.keys(userDetails).map(detail => {
+            if(detail === "subscriptionId"){
+              return;
+            } else {
+              return <div key={detail}>
+                      {userDetails[detail]}
+                     </div>
+            }
+          })}
             <a
               href="https://billing.stripe.com/p/login/test_14k5lH1ot4kxaT68ww"
               target="_blank"
@@ -148,7 +228,7 @@ const Dashboard = () => {
           </ul>
         </div>
         <div className="form-container">
-          <form className="signup" onSubmit={handleSubmit}>
+          <form className="signup" onSubmit={handleDetailsSubmit}>
             <h3>Update</h3>
 
             <div className="form-group">
@@ -235,6 +315,26 @@ const Dashboard = () => {
         <SkillMenu
           onSkillSubmit={handleSkillSubmit}
         />
+        <section className="skills-section">
+          {Object.keys(userSkills).map(skill => {
+            //if not string then will be array
+            if(typeof userSkills[skill] !== "string"){
+              return (
+                <div key={skill} className={`${skill}-container`}>
+                {userSkills[skill].map((skillItem, index) => (
+                    <div key={index} className={`${skill}-item`}>
+                        {skillItem}{index}
+                    </div>
+                ))}
+            </div>
+              )
+            } else {
+              return <div key={skill} className='skill-text'>
+              {userSkills[skill]}
+            </div>
+            }
+          })}
+        </section>
     </div>
   );
 };
